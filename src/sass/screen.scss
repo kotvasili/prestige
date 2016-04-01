@@ -36,6 +36,7 @@ button {
 	border: none;
 	outline: none;
 	background: transparent;
+	padding: 0;
 }
 a {
 	text-decoration: none;
@@ -45,7 +46,14 @@ a[data-popup], a[data-scroll] {
 }
 body {
 	background-color: $darkGrey;
+	background-image: url(../img/bg.jpg);
+	background-size: cover;
 }
+.wgrid {
+	max-width: 1600px;
+	margin: 0 auto;
+}
+$h90: 90px;
 .frame {
 	position: fixed;
 	@include clearfix;
@@ -53,13 +61,13 @@ body {
 		top: 0;
 		left: 0;
 		right: 0;
-		height: 90px;
+		height: $h90;
 	}
 	&.frame_right {
-		top: 90px;
+		top: $h90;
 		right: 0;
-		bottom: 90px;
-		width: 90px;
+		bottom: $h90;
+		width: $h90;
 		font-size: 0;
 		text-align: center;
 		&::before {
@@ -74,14 +82,14 @@ body {
 		right: 0;
 		bottom: 0;
 		left: 0;
-		height: 90px;
+		height: $h90;
 		padding-left: 39px;
 	}
 	&.frame_left {
-		top: 90px;
+		top: $h90;
 		left: 0;
-		bottom: 90px;
-		width: 90px;
+		bottom: $h90;
+		width: $h90;
 	}
 }
 .logo {
@@ -89,14 +97,14 @@ body {
 	color: $white;
 	font-size: 28px;
 	text-transform: uppercase;
-	line-height: 90px;
+	line-height: $h90;
 	float: left;
 	padding: 0 39px;
 	letter-spacing: 0.49px;
 }
 .humburger {
-	width: 90px;
-	height: 90px;
+	width: $h90;
+	height: $h90;
 	float: right;
 	span {
 		display: inline-block;
@@ -141,7 +149,7 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 	position: relative;
-	width: 90px;
+	width: $h90;
 	font-size: 12px;
 	transform: translateZ(0);
 	a {
@@ -154,13 +162,15 @@ body {
 		letter-spacing: 2.99px;
 		top: 0;
 		left: -33px;
-		line-height: 90px;
+		line-height: $h90;
+		color: rgba(255,255,255,.5);
+		transition: color 0.3s ease;
 		span {
-			color: $white;
+			color: rgba(255,255,255,.5);
 			transition: color 0.3s ease;
 		}
 		&:hover {
-			opacity: 1;
+			color: $white;
 			span {
 				color: $red;
 			}
@@ -171,7 +181,293 @@ body {
 	font-family: $PragmaticaBook;
 	font-size: 12px;
 	color: rgba(255,255,255,0.5);
-	line-height: 90px;
+	line-height: $h90;
 	text-transform: uppercase;
 	letter-spacing: 2.99px;
+	float: left;
+}
+.shared {
+	width: $h90;
+	height: $h90;
+	float: right;
+	position: relative;
+	transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+	.shared-active-item {
+		width: $h90;
+		height: $h90;
+		text-align: center;
+		cursor: default;
+	}
+	.shared-icon-social {
+		width: 22px;
+		height: 22px;
+		position: absolute;	
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		.icon {
+			width: 22px;
+			height: 22px;
+			display: block;
+			path {
+				fill: rgba(255,255,255,.5);
+				transition: fill 0.3s ease;
+			}
+		}
+	}
+	.shared-list {
+		position: absolute;
+		bottom: 70px;
+		width: 100%;
+		right: 0;
+		.shared-list_item {
+			width: $h90;
+			height: 45px;
+			position: relative;
+			display: block;			
+			transform: translate(100%, 0);
+			transition: 0.5s $ease-in-out-back;
+			&:nth-child(2) {
+				transition-delay: 0.1s;
+			}
+			&:nth-child(3) {
+				transition-delay: 0.2s;
+			}
+			&:hover {
+				.icon {
+					path {
+						fill: $white;
+					}
+				}
+			}
+		}
+	}
+	&:hover {
+		.shared-active-item {
+			.shared-icon-social {
+				.icon {
+					path {
+						fill: $white;
+					}
+				}
+			}
+		}
+		.shared-list_item {
+			transform: translate(0,0);
+		}
+	}
+}
+.navigation {
+	position: fixed;
+	background-color: rgba(0,0,0,.75);
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: all 0.4s linear;
+	padding: 20px 0;
+	font-size: 0;
+	opacity: 0;
+	visibility: hidden;
+	overflow-y: auto;
+	&::before {
+		content: '';
+		width: 0;
+		height: 100%;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	&.inner-nav {
+		opacity: 1;
+		visibility: visible;
+		.navigation__container {
+			transform: translateY(0);
+			opacity: 1;
+			&::after {
+				background-position: 50% 50%;
+			}
+		}
+	}
+	.navigation__container {
+		width: 100%;
+		height: 670px;
+		padding: 130px 0;
+		background-color: $darkGrey;
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		opacity: 0;
+		transform: translateY(-20%);
+		transition: transform 0.4s linear, opacity 0.4s linear;
+		transition-delay: 0.4s;
+		overflow: hidden;
+		&::after {
+			content: '';
+			position: absolute;
+			background-image: url(../img/background.jpg);
+			background-position: 50% 35%;
+			background-size: cover;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0.25;
+			transition: background-position 0.4s linear;
+			transition-delay: 0.4s;
+			z-index: 0;
+		}
+		&::before {
+			content: 'PRESTIGE';
+			font-family: $PragmaticaCondensedBlack;
+			font-size: 200px;
+			letter-spacing: 59.9px;
+			color: rgba(255, 255, 255, 0.05);
+			position: absolute;
+			top: 43%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			z-index: 1;
+			cursor: default;
+		}
+	}
+	.lang {
+		position: absolute;
+		right: 25px;
+		top: 15px;
+		z-index: 3;
+		.lang-item {
+			font-family: $PragmaticaBook;
+			font-size: 12px;
+			color: rgba(255,255,255,.5);
+			text-transform: uppercase;
+			display: inline-block;
+			padding: 10px 25px;
+			transition: color 0.3s ease;
+			letter-spacing: 2.99px;
+			&.active {
+				color: $white;
+			}
+			&:hover {
+				color: $red;
+			}
+		}
+	}
+	.close {
+		position: absolute;
+		top: 46px;
+		left: 50%;
+		z-index: 3;
+		text-align: center;
+		cursor: pointer;
+		.menu {
+			width: 25px;
+			height: 25px;
+			display: inline-block;
+			position: relative;
+			margin-bottom: 10px;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				height: 1px;
+				width: 100%;
+				background-color: rgba(255,255,255,0.5);
+				margin-top: -1px;
+				transform: rotate(45deg);
+				transition: all 0.5s ease;
+			}
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				height: 1px;
+				width: 100%;
+				background-color: rgba(255,255,255,0.5);
+				margin-top: -1px;
+				transform: rotate(-45deg);
+				transition: all 0.5s ease;
+			}
+		}
+		.text {
+			font-family: $PragmaticaBook;
+			font-size: 12px;
+			text-transform: uppercase;
+			color: rgba(255,255,255,.5);
+			letter-spacing: 2.9px;
+			display: block;
+			width: 100%;
+			transition: color 0.5s ease;
+		}
+		&:hover {
+			.text {
+				color: $white;
+			}
+			.menu {
+				&::after, &::before {
+					background-color: $white;
+					transform: rotate(0);
+				}
+			}
+		}
+	}
+}
+.wgrid {
+	position: relative;
+	z-index: 3;
+	.row {
+		display: block;
+		position: relative;
+		width: 100%;
+		z-index: 4px;
+		@include clearfix;
+		.column {
+			width: 16.66%;
+			float: left;
+			display: block;
+			& > ul {
+				& > li {
+					margin-top: 140px;
+					margin-bottom: 25px;
+					a {
+						font-family: $PragmaticaBold;
+						font-size: 30px;
+						color: $white;
+						letter-spacing: 1.99px;
+						text-transform: uppercase;
+						transition: color 0.3s ease;
+						position: relative;
+						&:hover, &.active {
+							color: $red;
+						}
+						&.active {
+							&::before {
+								content: '';
+								width: 2px;
+								height: 57px;
+								background-color: $red;
+								position: absolute;
+								top: -130px;
+								left: 50%;
+								margin-left: -1px;
+							}
+						}
+					}
+				}
+				ul {
+					li {
+						margin-bottom: 25px;
+						a {
+							font-family: $PragmaticaBook;
+							font-size: 14px;
+							color: $white;
+							text-transform: uppercase;
+							letter-spacing: 1.99px;
+						}
+					}
+				}
+			}
+		}
+	}
 }
