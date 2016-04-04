@@ -46,14 +46,54 @@ a[data-popup], a[data-scroll] {
 }
 body {
 	background-color: $darkGrey;
-	background-image: url(../img/bg.jpg);
+	//background-image: url(../img/bg.jpg);
 	background-size: cover;
+	min-width: $min-width;
 }
 .wgrid {
 	max-width: 1600px;
 	margin: 0 auto;
 }
-$h90: 90px;
+.out {
+	min-width: $min-width;
+	position: relative;
+	height: 100%;
+}
+.wrapper {
+	max-width: 1600px;
+	margin: 0 auto;
+}
+.backgrounded-rgrid {
+	max-width: 662px;
+	margin: 0 auto;
+	position: absolute;
+	right: 0;
+	left: -42px;
+	top: 0;
+	bottom: 0;
+	pointer-events: none;
+	display: block;
+	width: 100%;
+	.backgrounded {
+		display: block;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		max-width: 662px;
+		margin: 0 auto;
+		@include clearfix;
+		.column {
+			display: block;
+			float: left;
+			width: 50%;
+			border-left: 1px solid rgba(255,255,255,.1);
+			height: 100%;
+			&:last-child {
+				border-right: 1px solid rgba(255,255,255,.1);
+			}
+		}
+	}
+}
 .frame {
 	position: fixed;
 	@include clearfix;
@@ -100,7 +140,7 @@ $h90: 90px;
 	line-height: $h90;
 	float: left;
 	padding: 0 39px;
-	letter-spacing: 0.49px;
+	letter-spacing: 0.99px;
 }
 .humburger {
 	width: $h90;
@@ -159,9 +199,9 @@ $h90: 90px;
 		position: absolute;
 		color: $white;
 		text-transform: uppercase;
-		letter-spacing: 2.99px;
-		top: 0;
-		left: -33px;
+		letter-spacing: 3.99px;
+		top: -47px;
+		left: -48px;
 		line-height: $h90;
 		color: rgba(255,255,255,.5);
 		transition: color 0.3s ease;
@@ -183,7 +223,7 @@ $h90: 90px;
 	color: rgba(255,255,255,0.5);
 	line-height: $h90;
 	text-transform: uppercase;
-	letter-spacing: 2.99px;
+	letter-spacing: 3.69px;
 	float: left;
 }
 .shared {
@@ -290,8 +330,7 @@ $h90: 90px;
 	}
 	.navigation__container {
 		width: 100%;
-		height: 670px;
-		padding: 130px 0;
+		padding: 146px 0;
 		background-color: $darkGrey;
 		position: relative;
 		display: inline-block;
@@ -320,20 +359,23 @@ $h90: 90px;
 			content: 'PRESTIGE';
 			font-family: $PragmaticaCondensedBlack;
 			font-size: 200px;
-			letter-spacing: 59.9px;
+			letter-spacing: 40px;
 			color: rgba(255, 255, 255, 0.05);
 			position: absolute;
-			top: 43%;
-			left: 50%;
+			top: 45%;
+			left: 51%;
 			transform: translate(-50%,-50%);
 			z-index: 1;
 			cursor: default;
+			@include r(1280) {
+				font-size: 145px;
+			}
 		}
 	}
 	.lang {
 		position: absolute;
-		right: 25px;
-		top: 15px;
+		right: 23px;
+		top: 43px;
 		z-index: 3;
 		.lang-item {
 			font-family: $PragmaticaBook;
@@ -341,7 +383,7 @@ $h90: 90px;
 			color: rgba(255,255,255,.5);
 			text-transform: uppercase;
 			display: inline-block;
-			padding: 10px 25px;
+			padding: 10px 18px;
 			transition: color 0.3s ease;
 			letter-spacing: 2.99px;
 			&.active {
@@ -354,17 +396,17 @@ $h90: 90px;
 	}
 	.close {
 		position: absolute;
-		top: 46px;
-		left: 50%;
+		top: 44px;
+		left: 48.3%;
 		z-index: 3;
 		text-align: center;
 		cursor: pointer;
 		.menu {
-			width: 25px;
-			height: 25px;
+			width: 33px;
+			height: 33px;
 			display: inline-block;
 			position: relative;
-			margin-bottom: 10px;
+			margin-bottom: 11px;
 			&::after {
 				content: '';
 				position: absolute;
@@ -395,7 +437,7 @@ $h90: 90px;
 			font-size: 12px;
 			text-transform: uppercase;
 			color: rgba(255,255,255,.5);
-			letter-spacing: 2.9px;
+			letter-spacing: 3.6px;
 			display: block;
 			width: 100%;
 			transition: color 0.5s ease;
@@ -412,6 +454,13 @@ $h90: 90px;
 			}
 		}
 	}
+	.wgrid {
+		max-width: 1492px;
+		padding: 0 30px;
+		@include r(1280) {
+			padding: 0 12px;
+		}
+	}
 }
 .wgrid {
 	position: relative;
@@ -423,25 +472,55 @@ $h90: 90px;
 		z-index: 4px;
 		@include clearfix;
 		.column {
-			width: 16.66%;
+			width: 12.72%;
 			float: left;
 			display: block;
+			@include r(1400) {
+				width: 12.5%;
+			}
+			@include r(1150) {
+				width: 10.5%;
+			}
+			&:nth-child(2) {
+				width: 19%;
+				@include r(1150) {
+					width: 18%;
+				}
+			}
+			&:nth-child(3) {
+				width: 18.05%;
+			}
+			&:nth-child(4) {
+				width: 13.75%;
+				@include r(1400) {
+					width: 13.65%;
+				}
+				@include r(1150) {
+					width: 15.5%;
+				}
+			}
+			&:nth-child(5) {
+				width: 20.5%;
+				@include r(1400) {
+					width: 20%;
+				}
+			}
+			&:nth-child(6) {
+				width: 15.8%;
+				@include r(1400) {
+					width: 16.8%;
+				}
+			}
 			& > ul {
 				& > li {
-					margin-top: 140px;
-					margin-bottom: 25px;
-					a {
-						font-family: $PragmaticaBold;
-						font-size: 30px;
-						color: $white;
-						letter-spacing: 1.99px;
-						text-transform: uppercase;
-						transition: color 0.3s ease;
-						position: relative;
-						&:hover, &.active {
+					margin-top: 144px;
+					margin-bottom: 20px;
+					@include r(1280) {
+						margin-top: 75px;
+					}
+					&.active {
+						a {
 							color: $red;
-						}
-						&.active {
 							&::before {
 								content: '';
 								width: 2px;
@@ -450,24 +529,228 @@ $h90: 90px;
 								position: absolute;
 								top: -130px;
 								left: 50%;
-								margin-left: -1px;
+								margin-left: -6px;
+								@include r(1280) {
+									height: 40px;
+									top: -75px;
+								}
 							}
+						}
+					}
+					a {
+						font-family: $PragmaticaBold;
+						font-size: 30px;
+						color: $white;
+						letter-spacing: 5.99px;
+						text-transform: uppercase;
+						transition: color 0.3s ease;
+						position: relative;
+						@include r(1400) {
+							font-size: 24px;
+						}
+						@include r(1150) {
+								font-size: 20px;
+							}
+						&:hover, &.active {
+							color: $red;
 						}
 					}
 				}
 				ul {
 					li {
-						margin-bottom: 25px;
 						a {
 							font-family: $PragmaticaBook;
 							font-size: 14px;
 							color: $white;
 							text-transform: uppercase;
-							letter-spacing: 1.99px;
+							letter-spacing: 2.79px;
+							padding: 9px 0 11px;
+							display: inline-block;
+							line-height: 2;
+							transform: translate3d(0px, 0px, 0px);
+							transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+							position: relative;
+							padding-right: 10px;
+							@include r(1400) {
+								font-size: 12px;
+							}
+							@include r(1150) {
+								font-size: 10px;
+							}
+							&::before {
+								background-color: $red;
+								content: "";
+								height: 2px;
+								left: 0;
+								position: absolute;
+								top: 0;
+								transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+								width: 0;
+								pointer-events: none;
+							}
+							&::after {
+								bottom: 0;
+								content: "";
+								left: 0;
+								position: absolute;
+								top: 0;
+								right: 0;
+								width: 100%;
+							}
+							&:hover {
+								color: $red;
+								transform: translate3d(0px, 15px, 0px);
+								@include r(1150) {
+									transform: translate3d(0px, 10px, 0px);
+								}
+								&::before {
+									width: 30px;
+									@include r(1150) {
+										width: 20px;
+									}
+								}
+								&::after {
+									top: -15px;
+									@include r(1150) {
+										top: -10px;
+									}
+								}
+							}
 						}
 					}
 				}
 			}
+		}
+	}
+}
+.media {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 3;
+	.media-item {
+		width: 57px;
+		height: 37px;
+		display: block;
+		position: relative;
+		float: left;
+		.media-item_icon {
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			.icon {
+				width: 22px;
+				height: 22px;
+				display: block;
+				path {
+					fill: rgba(255,255,255,.5);
+					transition: fill 0.3s ease;
+				}
+			}
+		}
+		&:hover {
+			.media-item_icon {
+				.icon {
+					path {
+						fill: $white;
+					}
+				}
+			}
+		}
+	}
+}
+.footer {
+	min-height: 718px;
+	background-image: url(../img/bg/map.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	.link-case {
+		float: left;
+		width: 77.6%;
+		text-align: right;
+		margin-top: 101px;
+	}
+}
+.block-address {
+	position: relative;
+	width: 51.2%;
+	float: right;
+	margin-top: 101px;
+	&.contact {
+		margin-top: 81px;
+		width: 68.3%;
+	}
+	.block-address_title {
+		font-family: $PragmaticaBlack;
+		font-size: 18px;
+		color: $white;
+		text-transform: uppercase;
+		letter-spacing: 3.4px;
+		margin-bottom: 19px;
+	}
+	.block-address_container {
+		p {
+			font-family: $PragmaticaBook;
+			font-size: 14px;
+			color: $white;
+			text-transform: uppercase;
+			letter-spacing: 2.75px;
+			margin-bottom: 11px;
+		}
+	}
+	.dash-list {
+		position: relative;
+		li {
+			font-family: $PragmaticaBold;
+			font-size: 24px;
+			color: $white;
+			text-transform: uppercase;
+			padding-left: 59px;
+			letter-spacing: 4.89px;
+			margin-bottom: 27px;
+			position: relative;
+			&::before {
+				content: '';
+				width: 32px;
+				height: 1px;
+				background-color: $white;
+				position: absolute;
+				left: 1px;
+				top: 15px;
+			}
+			a {
+				color: $white;
+			}
+		}
+	}
+}
+.link-dash {
+	font-family: $PragmaticaBlack;
+	font-size: 16px;
+	color: $white;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	padding: 5px 0;
+	position: relative;
+	transition: color 0.3s ease;
+	&::after {
+		content: '';
+		width: 100%;
+		height: 2px;
+		background-color: $red;
+		position: absolute;
+		left: 0;
+		top: 100%;
+		transition: top 0.3s ease;
+	}
+	&:hover {
+		color: $red;
+		&::after {
+			top: 0;
 		}
 	}
 }
