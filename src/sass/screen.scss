@@ -59,14 +59,14 @@ body {
 	position: relative;
 	height: 100%;
 }
-.wrapper {
+.container {
 	max-width: 1600px;
 	margin: 0 auto;
 }
 .backgrounded-rgrid {
 	max-width: 662px;
 	margin: 0 auto;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	left: -42px;
 	top: 0;
@@ -97,6 +97,7 @@ body {
 .frame {
 	position: fixed;
 	@include clearfix;
+	z-index: 50;
 	&.frame_top {
 		top: 0;
 		left: 0;
@@ -310,6 +311,7 @@ body {
 	opacity: 0;
 	visibility: hidden;
 	overflow-y: auto;
+	z-index: 60;
 	&::before {
 		content: '';
 		width: 0;
@@ -753,4 +755,137 @@ body {
 			top: 0;
 		}
 	}
+}
+
+.main-view {
+	height: 100vh;
+	width: 100%;
+}
+.subsection {
+	position: relative;
+	&.subsection-l {
+		height: 100%;
+		width: 37%;
+		.swiper-slide_inner {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+		}
+	}
+	&.subsection-r {
+		height: 100%;
+		width: 63%;
+		min-width: 1010px;
+		z-index: 2;
+		position: absolute;
+		right: 0;
+		top: 0;
+		.swiper-slide {
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			.swiper-slide_inner {
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+			}
+		}
+	}
+	&.subsection-c {
+		position: absolute;
+		bottom: 30px;
+		right: 0;
+		z-index: 51;
+		width: 56%;
+		.swiper-wrapper {
+			.swiper-slide {
+				opacity: 0 !important;
+			}
+			.swiper-slide-active {
+				opacity: 1!important;
+			}
+		}
+		.link-slider {
+			font-family: $PragmaticaBold;
+			font-size: 18px;
+			color: $white;
+			letter-spacing: 0.9px;
+			padding: 4px 0;
+			position: relative;
+			transition: color 0.3s ease;
+			display: inline-block;
+			margin-bottom: 4px;
+			padding-left: 57px;
+			span {
+				font-family: $PragmaticaBook;
+				font-size: 14px;
+				letter-spacing: 2.9px;
+			}
+			&::before {
+				content: '';
+				width: 32px;
+				height: 1px;
+				background-color: $white;
+				position: absolute;
+				top: 16px;
+				left: 0;
+			}
+			&::after {
+				content: '';
+				right: 0;
+				height: 2px;
+				background-color: $red;
+				position: absolute;
+				left: 55px;
+				top: 100%;
+				transition: top 0.3s ease;
+			}
+			&:hover {
+				color: $red;
+				&::after {
+					top: 0;
+				}
+			}
+		}
+	}
+	.swiper-container {
+		width: 100%;
+		height: 100%;
+	}
+}
+.subsection_slider {
+	width: 100%;
+	height: 100%;
+	.swiper-slide {
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+	}
+}
+.swiper-button-next {
+	position: absolute;
+	top: 50%;
+	right: 20%;
+	transform: translateY(-50%);
+	width: 50px;
+	height: 50px;
+	z-index: 4;
+}
+.slide_mask {
+	width: 150px;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 20%;
+}
+.slide_mask-inner {
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	transform: scale(1.05);
+	background-position: 0 0;
+	position: absolute;
+	top: 0;
+	right: -160%;
 }
