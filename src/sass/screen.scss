@@ -757,135 +757,286 @@ body {
 	}
 }
 
-.main-view {
-	height: 100vh;
+// .main-view {
+// 	height: 100vh;
+// 	width: 100%;
+// }
+// .subsection {
+// 	position: relative;
+// 	&.subsection-l {
+// 		height: 100%;
+// 		width: 37%;
+// 		.swiper-slide_inner {
+// 			width: 100%;
+// 			height: 100%;
+// 			background-size: cover;
+// 		}
+// 	}
+// 	&.subsection-r {
+// 		height: 100%;
+// 		width: 63%;
+// 		min-width: 1010px;
+// 		z-index: 2;
+// 		position: absolute;
+// 		right: 0;
+// 		top: 0;
+// 		.swiper-slide {
+// 			width: 100%;
+// 			height: 100%;
+// 			background-size: cover;
+// 			.swiper-slide_inner {
+// 				width: 100%;
+// 				height: 100%;
+// 				background-size: cover;
+// 			}
+// 		}
+// 	}
+// 	&.subsection-c {
+// 		position: absolute;
+// 		bottom: 30px;
+// 		right: 0;
+// 		z-index: 51;
+// 		width: 56%;
+// 		.swiper-wrapper {
+// 			.swiper-slide {
+// 				opacity: 0 !important;
+// 			}
+// 			.swiper-slide-active {
+// 				opacity: 1!important;
+// 			}
+// 		}
+// 		.link-slider {
+// 			font-family: $PragmaticaBold;
+// 			font-size: 18px;
+// 			color: $white;
+// 			letter-spacing: 0.9px;
+// 			padding: 4px 0;
+// 			position: relative;
+// 			transition: color 0.3s ease;
+// 			display: inline-block;
+// 			margin-bottom: 4px;
+// 			padding-left: 57px;
+// 			span {
+// 				font-family: $PragmaticaBook;
+// 				font-size: 14px;
+// 				letter-spacing: 2.9px;
+// 			}
+// 			&::before {
+// 				content: '';
+// 				width: 32px;
+// 				height: 1px;
+// 				background-color: $white;
+// 				position: absolute;
+// 				top: 16px;
+// 				left: 0;
+// 			}
+// 			&::after {
+// 				content: '';
+// 				right: 0;
+// 				height: 2px;
+// 				background-color: $red;
+// 				position: absolute;
+// 				left: 55px;
+// 				top: 100%;
+// 				transition: top 0.3s ease;
+// 			}
+// 			&:hover {
+// 				color: $red;
+// 				&::after {
+// 					top: 0;
+// 				}
+// 			}
+// 		}
+// 	}
+// 	.swiper-container {
+// 		width: 100%;
+// 		height: 100%;
+// 	}
+// }
+// .subsection_slider {
+// 	width: 100%;
+// 	height: 100%;
+// 	.swiper-slide {
+// 		width: 100%;
+// 		height: 100%;
+// 		background-size: cover;
+// 	}
+// }
+// .swiper-button-next {
+// 	position: absolute;
+// 	top: 50%;
+// 	right: 20%;
+// 	transform: translateY(-50%);
+// 	width: 50px;
+// 	height: 50px;
+// 	z-index: 4;
+// }
+.section_carousel {
 	width: 100%;
-}
-.subsection {
-	position: relative;
-	&.subsection-l {
+	height: 100vh;
+	background-color: $darkGrey;
+	//background-image: url(../img/bg/pattern.png);
+	.sq-carousel {
+		width: 100%;
 		height: 100%;
-		width: 37%;
-		.swiper-slide_inner {
-			width: 100%;
+		position: relative;
+		overflow: hidden;
+		.sq-carousel_rotator {
 			height: 100%;
-			background-size: cover;
-		}
-	}
-	&.subsection-r {
-		height: 100%;
-		width: 63%;
-		min-width: 1010px;
-		z-index: 2;
-		position: absolute;
-		right: 0;
-		top: 0;
-		.swiper-slide {
-			width: 100%;
-			height: 100%;
-			background-size: cover;
-			.swiper-slide_inner {
+			&.sq-carousel-l {
+				width: 37%;
+				height: 100%;
+				overflow: hidden;
+				position: relative;
+				.sq-carousel_bg {
+					background-size: cover;
+					width: 100%;
+					height: 100%;
+				}
+			}
+			&.sq-carousel-r {
+				width: 63%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 100%;
+				overflow: hidden;
+				.sq-carousel_bg {
+					background-size: cover;
+					background-position: 50% 50%;
+					width: 100%;
+					height: 100%;
+				}
+			}
+			&.sq-carousel-c {
+				width: calc(100% - 180px);
+				left: 90px;
+				bottom: 0;
+				height: 61px;
+				position: absolute;
+				z-index: 51;
+				text-align: center;
+				margin-left: -6px;
+				.shader {
+					display: inline-block;
+					vertical-align: middle;
+					padding-left: 57px;
+					position: relative;
+					&::before {
+						content: '';
+						width: 32px;
+						height: 1px;
+						background-color: $white;
+						position: absolute;
+						left: 0;
+						top: 16px;
+					}
+					.link-shader {
+						font-family: $PragmaticaBold;
+						font-size: 18px;
+						color: $white;
+						letter-spacing: 0.9px;
+						padding: 4px 0;
+						position: relative;
+						transition: color 0.3s ease;
+						display: inline-block;
+						margin-bottom: 4px;
+						span {
+							font-family: $PragmaticaBook;
+							font-size: 14px;
+							letter-spacing: 2.9px;
+						}
+						&::after {
+							content: '';
+							right: 0;
+							height: 2px;
+							background-color: $red;
+							position: absolute;
+							left: 0;
+							top: 100%;
+							transition: top 0.3s ease;
+						}
+						&:hover {
+							color: $red;
+							&::after {
+								top: 0;
+							}
+						}
+					}
+				}
+			}
+			.sq-carousel-item {
 				width: 100%;
 				height: 100%;
-				background-size: cover;
-			}
-		}
-	}
-	&.subsection-c {
-		position: absolute;
-		bottom: 30px;
-		right: 0;
-		z-index: 51;
-		width: 56%;
-		.swiper-wrapper {
-			.swiper-slide {
-				opacity: 0 !important;
-			}
-			.swiper-slide-active {
-				opacity: 1!important;
-			}
-		}
-		.link-slider {
-			font-family: $PragmaticaBold;
-			font-size: 18px;
-			color: $white;
-			letter-spacing: 0.9px;
-			padding: 4px 0;
-			position: relative;
-			transition: color 0.3s ease;
-			display: inline-block;
-			margin-bottom: 4px;
-			padding-left: 57px;
-			span {
-				font-family: $PragmaticaBook;
-				font-size: 14px;
-				letter-spacing: 2.9px;
-			}
-			&::before {
-				content: '';
-				width: 32px;
-				height: 1px;
-				background-color: $white;
 				position: absolute;
-				top: 16px;
+				top: 0;
 				left: 0;
-			}
-			&::after {
-				content: '';
-				right: 0;
-				height: 2px;
-				background-color: $red;
-				position: absolute;
-				left: 55px;
-				top: 100%;
-				transition: top 0.3s ease;
-			}
-			&:hover {
-				color: $red;
-				&::after {
-					top: 0;
+				&.active {
 				}
 			}
 		}
 	}
-	.swiper-container {
-		width: 100%;
-		height: 100%;
+	.sq-carousel-navi {
+		position: absolute;
+		top: 48%;
+		right: 11%;
+		transform: translate(-50%);		
+		z-index: 10;
+		.sq-carousel-next {
+			width: 40px;
+			height: 40px;
+			.icon {
+				width: 100%;
+				height: 19px;
+				display: block;
+				.fill {
+					fill: $white;
+					transition: fill 0.3s ease;
+				}
+				.stroke {
+					stroke: $white;
+					transition: stroke 0.3s ease;
+				}
+			}
+		}
+		&:hover {
+			.icon {
+				.fill {
+					fill: $red;
+				}
+				.stroke {
+					stroke: $red;
+				}
+			}
+		}
 	}
-}
-.subsection_slider {
-	width: 100%;
-	height: 100%;
-	.swiper-slide {
-		width: 100%;
+	.sq-carousel_mask {
 		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		&.sq-carousel_mask-first {
+			width: 228px;
+			right: 8.9%;
+			.sq-carousel_mask-inner {
+				right: -38.9%;
+			}
+		}
+		&.sq-carousel_mask-second {
+			width: 118px;
+			left: 20.9%;
+			.sq-carousel_mask-inner {
+				left: -178.9%;
+			}
+		}
+	}
+	.sq-carousel_mask-inner {
+		height: 100%;
+		width: 100%;
 		background-size: cover;
+		transform: scale(1.05);
+		background-position: 50% 50%;
+		position: absolute;
+		top: 0;
 	}
-}
-.swiper-button-next {
-	position: absolute;
-	top: 50%;
-	right: 20%;
-	transform: translateY(-50%);
-	width: 50px;
-	height: 50px;
-	z-index: 4;
-}
-.slide_mask {
-	width: 150px;
-	height: 100%;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	right: 20%;
-}
-.slide_mask-inner {
-	height: 100%;
-	width: 100%;
-	background-size: cover;
-	transform: scale(1.05);
-	background-position: 0 0;
-	position: absolute;
-	top: 0;
-	right: -160%;
 }
