@@ -83,6 +83,9 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
 g.setRatio=Qa,g.pr=-11,c=!0,g.b=o,k=$(a,e),l=a._gsClassPT){for(m={},n=l.data;n;)m[n.p]=1,n=n._next;l.setRatio(1)}return a._gsClassPT=g,g.e="="!==b.charAt(1)?b:o.replace(new RegExp("\\s*\\b"+b.substr(2)+"\\b"),"")+("+"===b.charAt(0)?" "+b.substr(2):""),a.setAttribute("class",g.e),j=_(a,k,$(a),i,m),a.setAttribute("class",o),g.data=j.firstMPT,a.style.cssText=p,g=g.xfirst=f.parse(a,j.difs,g,h)}});var Ra=function(a){if((1===a||0===a)&&this.data._totalTime===this.data._totalDuration&&"isFromStart"!==this.data.data){var b,c,d,e,f,g=this.t.style,h=i.transform.parse;if("all"===this.e)g.cssText="",e=!0;else for(b=this.e.split(" ").join("").split(","),d=b.length;--d>-1;)c=b[d],i[c]&&(i[c].parse===h?e=!0:c="transformOrigin"===c?Aa:i[c].p),Pa(g,c);e&&(Pa(g,ya),f=this.t._gsTransform,f&&(f.svg&&(this.t.removeAttribute("data-svg-origin"),this.t.removeAttribute("transform")),delete this.t._gsTransform))}};for(ua("clearProps",{parser:function(a,b,d,e,f){return f=new pa(a,d,0,0,f,2),f.setRatio=Ra,f.e=b,f.pr=-10,f.data=e._tween,c=!0,f}}),j="bezier,throwProps,physicsProps,physics2D".split(","),sa=j.length;sa--;)va(j[sa]);j=g.prototype,j._firstPT=j._lastParsedTransform=j._transform=null,j._onInitTween=function(a,b,h){if(!a.nodeType)return!1;this._target=a,this._tween=h,this._vars=b,k=b.autoRound,c=!1,d=b.suffixMap||g.suffixMap,e=W(a,""),f=this._overwriteProps;var j,n,p,q,r,s,t,u,v,x=a.style;if(l&&""===x.zIndex&&(j=X(a,"zIndex",e),("auto"===j||""===j)&&this._addLazySet(x,"zIndex",0)),"string"==typeof b&&(q=x.cssText,j=$(a,e),x.cssText=q+";"+b,j=_(a,j,$(a)).difs,!Q&&w.test(b)&&(j.opacity=parseFloat(RegExp.$1)),b=j,x.cssText=q),b.className?this._firstPT=n=i.className.parse(a,b.className,"className",this,null,null,b):this._firstPT=n=this.parse(a,b,null),this._transformType){for(v=3===this._transformType,ya?m&&(l=!0,""===x.zIndex&&(t=X(a,"zIndex",e),("auto"===t||""===t)&&this._addLazySet(x,"zIndex",0)),o&&this._addLazySet(x,"WebkitBackfaceVisibility",this._vars.WebkitBackfaceVisibility||(v?"visible":"hidden"))):x.zoom=1,p=n;p&&p._next;)p=p._next;u=new pa(a,"transform",0,0,null,2),this._linkCSSP(u,null,p),u.setRatio=ya?Na:Ma,u.data=this._transform||La(a,e,!0),u.tween=h,u.pr=-1,f.pop()}if(c){for(;n;){for(s=n._next,p=q;p&&p.pr>n.pr;)p=p._next;(n._prev=p?p._prev:r)?n._prev._next=n:q=n,(n._next=p)?p._prev=n:r=n,n=s}this._firstPT=q}return!0},j.parse=function(a,b,c,f){var g,h,j,l,m,n,o,p,q,r,s=a.style;for(g in b)n=b[g],h=i[g],h?c=h.parse(a,n,g,this,c,f,b):(m=X(a,g,e)+"",q="string"==typeof n,"color"===g||"fill"===g||"stroke"===g||-1!==g.indexOf("Color")||q&&y.test(n)?(q||(n=ja(n),n=(n.length>3?"rgba(":"rgb(")+n.join(",")+")"),c=ra(s,g,m,n,!0,"transparent",c,0,f)):!q||-1===n.indexOf(" ")&&-1===n.indexOf(",")?(j=parseFloat(m),o=j||0===j?m.substr((j+"").length):"",(""===m||"auto"===m)&&("width"===g||"height"===g?(j=ca(a,g,e),o="px"):"left"===g||"top"===g?(j=Z(a,g,e),o="px"):(j="opacity"!==g?0:1,o="")),r=q&&"="===n.charAt(1),r?(l=parseInt(n.charAt(0)+"1",10),n=n.substr(2),l*=parseFloat(n),p=n.replace(u,"")):(l=parseFloat(n),p=q?n.replace(u,""):""),""===p&&(p=g in d?d[g]:o),n=l||0===l?(r?l+j:l)+p:b[g],o!==p&&""!==p&&(l||0===l)&&j&&(j=Y(a,g,j,o),"%"===p?(j/=Y(a,g,100,"%")/100,b.strictUnits!==!0&&(m=j+"%")):"em"===p||"rem"===p||"vw"===p||"vh"===p?j/=Y(a,g,1,p):"px"!==p&&(l=Y(a,g,l,p),p="px"),r&&(l||0===l)&&(n=l+j+p)),r&&(l+=j),!j&&0!==j||!l&&0!==l?void 0!==s[g]&&(n||n+""!="NaN"&&null!=n)?(c=new pa(s,g,l||j||0,0,c,-1,g,!1,0,m,n),c.xs0="none"!==n||"display"!==g&&-1===g.indexOf("Style")?n:m):S("invalid "+g+" tween value: "+b[g]):(c=new pa(s,g,j,l-j,c,0,g,k!==!1&&("px"===p||"zIndex"===g),0,m,n),c.xs0=p)):c=ra(s,g,m,n,!0,null,c,0,f)),f&&c&&!c.plugin&&(c.plugin=f);return c},j.setRatio=function(a){var b,c,d,e=this._firstPT,f=1e-6;if(1!==a||this._tween._time!==this._tween._duration&&0!==this._tween._time)if(a||this._tween._time!==this._tween._duration&&0!==this._tween._time||this._tween._rawPrevTime===-1e-6)for(;e;){if(b=e.c*a+e.s,e.r?b=Math.round(b):f>b&&b>-f&&(b=0),e.type)if(1===e.type)if(d=e.l,2===d)e.t[e.p]=e.xs0+b+e.xs1+e.xn1+e.xs2;else if(3===d)e.t[e.p]=e.xs0+b+e.xs1+e.xn1+e.xs2+e.xn2+e.xs3;else if(4===d)e.t[e.p]=e.xs0+b+e.xs1+e.xn1+e.xs2+e.xn2+e.xs3+e.xn3+e.xs4;else if(5===d)e.t[e.p]=e.xs0+b+e.xs1+e.xn1+e.xs2+e.xn2+e.xs3+e.xn3+e.xs4+e.xn4+e.xs5;else{for(c=e.xs0+b+e.xs1,d=1;d<e.l;d++)c+=e["xn"+d]+e["xs"+(d+1)];e.t[e.p]=c}else-1===e.type?e.t[e.p]=e.xs0:e.setRatio&&e.setRatio(a);else e.t[e.p]=b+e.xs0;e=e._next}else for(;e;)2!==e.type?e.t[e.p]=e.b:e.setRatio(a),e=e._next;else for(;e;){if(2!==e.type)if(e.r&&-1!==e.type)if(b=Math.round(e.s+e.c),e.type){if(1===e.type){for(d=e.l,c=e.xs0+b+e.xs1,d=1;d<e.l;d++)c+=e["xn"+d]+e["xs"+(d+1)];e.t[e.p]=c}}else e.t[e.p]=b+e.xs0;else e.t[e.p]=e.e;else e.setRatio(a);e=e._next}},j._enableTransforms=function(a){this._transform=this._transform||La(this._target,e,!0),this._transformType=this._transform.svg&&wa||!a&&3!==this._transformType?2:3};var Sa=function(a){this.t[this.p]=this.e,this.data._linkCSSP(this,this._next,null,!0)};j._addLazySet=function(a,b,c){var d=this._firstPT=new pa(a,b,0,0,this._firstPT,2);d.e=c,d.setRatio=Sa,d.data=this},j._linkCSSP=function(a,b,c,d){return a&&(b&&(b._prev=a),a._next&&(a._next._prev=a._prev),a._prev?a._prev._next=a._next:this._firstPT===a&&(this._firstPT=a._next,d=!0),c?c._next=a:d||null!==this._firstPT||(this._firstPT=a),a._next=b,a._prev=c),a},j._kill=function(b){var c,d,e,f=b;if(b.autoAlpha||b.alpha){f={};for(d in b)f[d]=b[d];f.opacity=1,f.autoAlpha&&(f.visibility=1)}return b.className&&(c=this._classNamePT)&&(e=c.xfirst,e&&e._prev?this._linkCSSP(e._prev,c._next,e._prev._prev):e===this._firstPT&&(this._firstPT=c._next),c._next&&this._linkCSSP(c._next,c._next._next,e._prev),this._classNamePT=null),a.prototype._kill.call(this,f)};var Ta=function(a,b,c){var d,e,f,g;if(a.slice)for(e=a.length;--e>-1;)Ta(a[e],b,c);else for(d=a.childNodes,e=d.length;--e>-1;)f=d[e],g=f.type,f.style&&(b.push($(f)),c&&c.push(f)),1!==g&&9!==g&&11!==g||!f.childNodes.length||Ta(f,b,c)};return g.cascadeTo=function(a,c,d){var e,f,g,h,i=b.to(a,c,d),j=[i],k=[],l=[],m=[],n=b._internals.reservedProps;for(a=i._targets||i.target,Ta(a,k,m),i.render(c,!0,!0),Ta(a,l),i.render(0,!0,!0),i._enabled(!0),e=m.length;--e>-1;)if(f=_(m[e],k[e],l[e]),f.firstMPT){f=f.difs;for(g in d)n[g]&&(f[g]=d[g]);h={};for(g in f)h[g]=k[e][g];j.push(b.fromTo(m[e],c,h,f))}return j},a.activate([g]),g},!0)}),_gsScope._gsDefine&&_gsScope._gsQueue.pop()(),function(a){"use strict";var b=function(){return(_gsScope.GreenSockGlobals||_gsScope)[a]};"function"==typeof define&&define.amd?define(["TweenLite"],b):"undefined"!=typeof module&&module.exports&&(require("../TweenLite.js"),module.exports=b())}("CSSPlugin");
 
 $(document).ready(function () {
+	setTimeout(function(){
+		$(window).scrollTop(0);
+	}, 100);
 	function burger(){
 		var burger = $('.humburger'),
 				nav = $('.navigation'),
@@ -107,11 +110,13 @@ $(document).ready(function () {
 					bSH = $('body').scrollHeight,
 					$prlx, $wrapper, wrapperRect, wrapperOffset, wrapperMargin,
 					speed, direction, y, scrollHeight, scrollPosition, axis,
-					data = {};
+					data = {}, topBorder;
 			$parallaxes.each(function(){
 				data = {};
 				$prlx = $(this);
-				axis = $prlx.data('axis') || 'y';
+				axis = $prlx.data('axis') || 'y',
+				topBorder = $('.frame_top'),
+				bottomBorder = $('.frame_bottom');
 
 				if (!$prlx.length) {
 					return false;
@@ -128,11 +133,13 @@ $(document).ready(function () {
 				direction = parseInt($prlx.data('direction'), 10) || 1;
 				wrapperOffset = $wrapper.offset().top;
 
-				// if (wrapperMargin < 0 && (scrollTop + wrapperRect.top) <= Helpers.topBorder) {
-				// 	wrapperMargin = 0;
-				// }
+				wrapperMargin = ($(window).height() - topBorder.innerHeight() - bottomBorder.innerHeight() - wrapperRect.height) / 2;
 
-				y = Math.round((wrapperRect.top) * speed) * direction;
+				if (0 > wrapperMargin && (scrollTop + wrapperRect.top) <= topBorder.innerHeight()) {
+					wrapperMargin = 0;
+				}
+
+				y = Math.round((wrapperRect.top - topBorder.innerHeight() - wrapperMargin) * speed) * direction;
 
 				if (scrollTop === 0) {
 					y = 0;
@@ -140,7 +147,7 @@ $(document).ready(function () {
 					scrollHeight = bSH;
 					scrollPosition = $(window).height() + scrollTop;
 					if (
-						scrollHeight - wrapperOffset - $wrapper.innerHeight() <= 2 &&
+						scrollHeight - wrapperOffset - $wrapper.innerHeight() - bottomBorder.innerHeight() <= 2 &&
 						(scrollHeight - scrollPosition) / scrollHeight === 0
 						) {
 						y = 0;
@@ -152,46 +159,43 @@ $(document).ready(function () {
 		});
 	};
 
-	// $('.swiper-slide_inner').each(function(){
-	// 	var $this = $(this),
-	// 			vW = $this.innerWidth(),
-	// 			vH = $this.innerHeight(),
-	// 			maskInner = $(this).find('.slide_mask-inner');
+	function appendSlide() {
+		$('.sq-carousel-r .sq-carousel-item').each(function(){
+			var _ = $(this),
+				bgItem = _.find('.sq-carousel_bg'),
+				bg = bgItem.attr('style');
+			bgItem.append('<div class="sq-carousel_mask sq-carousel_mask-first"><div class="sq-carousel_mask-inner" style="' + bg + '"></div></div><div class="sq-carousel_mask sq-carousel_mask-second"><div class="sq-carousel_mask-inner" style="' + bg +'"></div></div>');	
+		});
+		maskSize();
+		if($('.sq-carousel_mask-inner').length) {
+			Motion($('.sq-carousel_mask-inner'));
+		}
+	}
+	appendSlide();	
 
-	// 		maskInner.css({
-	// 			"width": vW,
-	// 			"height": vH
-	// 		});
-	// });
+	function Motion($motion) {
+		var $direction, $wrapper;
 
-	// $('.main-view').on('mousemove', function(e){
-	// 	var x, x1;
-	// 	var deltaX = e.pageX;
-	// 	var deltaY = e.pageY;
+		$('.sq-carousel').on('mousemove', function(e){
+			var x, y,
+				deltaX = e.pageX,
+				deltaY = e.pageY;
 
-	// 	var kx = deltaX / 20;
+				$motion.each(function(){
+					var speedX, speedY,
+						direction = $(this).data('direction') || 1;
 
-	// 	$('.slide_mask-inner').each(function(){
-	// 		var data1 = {}, 
-	// 				data2 = {},
-	// 				$prlx1 = $(this),
-	// 				axisX = 'x',
-	// 				axisY = 'y',
-	// 				wrapperRect;
-	// 		speed = parseInt(deltaX, 10) / 109 || 0.20;
+						speedX = parseInt(deltaX, 10) / 109 * direction || 0.20;
+						speedY = parseInt(deltaY, 10) / 109 * direction || 0.20;
 
-	// 		x1 = Math.round((deltaX) * speed) / 890;
-	// 		y1 = Math.round((deltaY) * speed) / 890;
+						x = Math.round((deltaX) * speedX) / 790;
+						y = Math.round((deltaY) * speedY) / 590;
 
-	// 		TweenLite.to($prlx1, 1, 
-	// 			{
-	// 				x: x1,
-	// 				y: y1
-	// 			}
-	// 		);
-	// 	});
-	// });
-
+						TweenLite.to($motion, 1,{x: x, y: y})
+				});
+		});
+	};	
+	
 	function maskSize() {
 		var rotator = $('.sq-carousel-r'),
 			rotatorItem = rotator.find('.sq-carousel-item');
@@ -209,9 +213,7 @@ $(document).ready(function () {
 				if($this.hasClass('sq-carousel_mask-first')) {
 					var maskVW = $(this).width();
 
-					console.log(maskVW)
-
-					var kx = (vW / maskVW) * 20.59;
+					var kx = (vW / maskVW) * 16.59;
 
 					$this.children().css({
 						"width": vW,
@@ -221,7 +223,6 @@ $(document).ready(function () {
 				} else {
 					var maskVW = $(this).width();
 					var kx = (vW / maskVW) * 24.59;
-					console.log(maskVW)
 					$this.children().css({
 						"width": vW,
 						"height": vH,
@@ -232,108 +233,164 @@ $(document).ready(function () {
 			});
 		});
 	}
-	maskSize();
 	$(window).on('resize', function() {
 			maskSize();
 	});
 
 
 	//main carousel
+	(function(){
+		var $activeSlide = $('.active'),
+				$slide = $('.sq-carousel-item'),
+				$btnNext = $('.sq-carousel-next'),
+				$rCarousel = $('.sq-carousel-r'),
+				$lCarousel = $('.sq-carousel-l'),
+				$cCarousel = $('.sq-carousel-c')
 
-	var $activeSlide = $('.active'),
-			$slide = $('.sq-carousel-item'),
-			$btnNext = $('.sq-carousel-next'),
-			$rCarousel = $('.sq-carousel-r'),
-			$lCarousel = $('.sq-carousel-l'),
-			$cCarousel = $('.sq-carousel-c')
-
-	function init() {
-		TweenLite.set($slide.not($activeSlide), {
-			autoAlpha: 0
-		});
-		var tl1 = new TimelineLite();
-		tl1
-			.set($rCarousel, {x: '100%'})
-			.set($lCarousel, {x: '-100%'})
-			.set($cCarousel, {y: '100%'})
-			.to($rCarousel, 1.5, {x: '-=100%', ease:Power3.easeInOut},0)
-			.to($lCarousel, 1.5, {x: '+=100%', ease:Power3.easeInOut},0)
-			.to($cCarousel, 1.5, {y: '-=100%', ease:Power3.easeInOut},0)
-		
-
-	}
-	init();
-
-	function goToNextSlide(sQleft, sQright, sQcenter){
-		var tl = new TimelineLite({onComplete: foo});
-
-		var $sQleftOut = sQleft.find('.sq-carousel-item.active'),
-				$sQleftIn = sQleft.find('.sq-carousel-item.active').next('.sq-carousel-item'),
-				$sQleftFirst = sQleft.find('.sq-carousel-item:first-of-type'),
-				$sQrightOut = sQright.find('.sq-carousel-item.active'),
-				$sQrightIn = sQright.find('.sq-carousel-item.active').next('.sq-carousel-item'),
-				$sQrightFirst = sQright.find('.sq-carousel-item:first-of-type'),
-				$sQcenterOut = sQcenter.find('.sq-carousel-item.active'),
-				$sQcenterIn = sQcenter.find('.sq-carousel-item.active').next('.sq-carousel-item'),
-				$sQcenterFirst = sQcenter.find('.sq-carousel-item:first-of-type');
-
-
-		if($sQleftIn.length !== 0 && $sQrightIn.length !== 0 && $sQcenterIn.length !== 0) {
-			tl
-				.set($sQleftIn, {x: '-100%', autoAlpha: 1, className: '+=active', zIndex: 4})
-				.set($sQleftOut , {className: '-=active', zIndex: 1})
-
-				.set($sQrightIn, {x: '100%', autoAlpha: 1, className: '+=active', zIndex: 4})
-				.set($sQrightOut , {className: '-=active', zIndex: 1})
-
-				.set($sQcenterIn, {y: '100%', autoAlpha: 1, className: '+=active', zIndex: 4})
-				.set($sQcenterOut , {className: '-=active', zIndex: 1})
-
-				.to($sQleftOut, 1.5, {x: '-100%', zIndex: 1, ease:Power3.easeInOut}, 0)
-				.to($sQleftIn, 1.5, {x: '+=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
-
-				.to($sQrightOut, 1.5, {x: '100%', zIndex: 1, ease:Power3.easeInOut}, 0)
-				.to($sQrightIn, 1.5, {x: '-=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
-
-				.to($sQcenterOut, 1.5, {y: '100%', zIndex: 1, autoAlpha: 0, ease:Power3.easeInOut}, 0)
-				.to($sQcenterIn, 1.5, {y: '-=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
-		} else {
-			tl
-				.set($sQleftFirst, {x: '0', autoAlpha: 1, className: '+=active', zIndex: 4})
-				.set($sQleftOut , {className: '-=active', zIndex: 1})
-
-				.set($sQrightFirst, {x: '0', autoAlpha: 1, className: '+=active', zIndex: 4})
-				.set($sQrightOut , {className: '-=active', zIndex: 1})
-
-				.set($sQcenterFirst, {y: '0', autoAlpha: 1, className: '+=active', zIndex: 4})
-				.set($sQcenterOut , {className: '-=active', zIndex: 1})
-
-				.to($sQleftFirst, 1.5, {x: '+=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
-				.to($sQleftOut, 1.5, {x: '-100%', zIndex: 1, ease:Power3.easeInOut}, 0)
-
-				.to($sQrightFirst, 1.5, {x: '-=100%', zIndex: 4, ease:Power3.easeInOut, onComplete: foo}, 0)
-				.to($sQrightOut, 1.5, {x: '100%', zIndex: 1, ease:Power3.easeInOut}, 0)
-
-				.to($sQcenterFirst, 1.5, {y: '-=100%', zIndex: 4, ease:Power3.easeInOut, onComplete: foo}, 0)
-				.to($sQcenterOut, 1.5, {y: '100%', zIndex: 1, autoAlpha: 0, ease:Power3.easeInOut}, 0)
+		function init() {
+			TweenLite.set($slide.not($activeSlide), {
+				autoAlpha: 0
+			});
+			var tl1 = new TimelineLite();
+			tl1
+				.set($rCarousel, {x: '100%'})
+				.set($lCarousel, {x: '-100%'})
+				.set($cCarousel, {y: '100%'})
+				.to($rCarousel, 1.5, {x: '-=100%', ease:Power3.easeInOut},0)
+				.to($lCarousel, 1.5, {x: '+=100%', ease:Power3.easeInOut},0)
+				.to($cCarousel, 1.5, {y: '-=100%', ease:Power3.easeInOut},0)
 		}
-	}
+		init();
 
-	function foo() {
-		$btnNext.removeClass('animate');
-	}
+		function goToNextSlide(sQleft, sQright, sQcenter){
+			var tl = new TimelineLite({onComplete: foo});
 
-	$btnNext.on('click', function(e){
-		e.preventDefault();
-		if($(this).hasClass('animate')) return false;
+			var $sQleftOut = sQleft.find('.sq-carousel-item.active'),
+					$sQleftIn = sQleft.find('.sq-carousel-item.active').next('.sq-carousel-item'),
+					$sQleftFirst = sQleft.find('.sq-carousel-item:first-of-type'),
+					$sQrightOut = sQright.find('.sq-carousel-item.active'),
+					$sQrightIn = sQright.find('.sq-carousel-item.active').next('.sq-carousel-item'),
+					$sQrightFirst = sQright.find('.sq-carousel-item:first-of-type'),
+					$sQcenterOut = sQcenter.find('.sq-carousel-item.active'),
+					$sQcenterIn = sQcenter.find('.sq-carousel-item.active').next('.sq-carousel-item'),
+					$sQcenterFirst = sQcenter.find('.sq-carousel-item:first-of-type');
 
-		$(this).addClass('animate');
 
-		var sQleft = $('.sq-carousel-l'),
-				sQright = $('.sq-carousel-r'),
-				sQcenter = $('.sq-carousel-c');
+			if($sQleftIn.length !== 0 && $sQrightIn.length !== 0 && $sQcenterIn.length !== 0) {
+				tl
+					.set($sQleftIn, {x: '-100%', autoAlpha: 1, className: '+=active', zIndex: 4})
+					.set($sQleftOut , {className: '-=active', zIndex: 1})
 
-		goToNextSlide(sQleft, sQright, sQcenter);
-	});
+					.set($sQrightIn, {x: '100%', autoAlpha: 1, className: '+=active', zIndex: 4})
+					.set($sQrightOut , {className: '-=active', zIndex: 1})
+
+					.set($sQcenterIn, {y: '100%', autoAlpha: 1, className: '+=active', zIndex: 4})
+					.set($sQcenterOut , {className: '-=active', zIndex: 1})
+
+					.to($sQleftOut, 1.5, {x: '-100%', zIndex: 1, ease:Power3.easeInOut}, 0)
+					.to($sQleftIn, 1.5, {x: '+=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
+
+					.to($sQrightOut, 1.5, {x: '100%', zIndex: 1, ease:Power3.easeInOut}, 0)
+					.to($sQrightIn, 1.5, {x: '-=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
+
+					.to($sQcenterOut, 1.5, {y: '100%', zIndex: 1, autoAlpha: 0, ease:Power3.easeInOut}, 0)
+					.to($sQcenterIn, 1.5, {y: '-=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
+			} else {
+				tl
+					.set($sQleftFirst, {x: '0', autoAlpha: 1, className: '+=active', zIndex: 4})
+					.set($sQleftOut , {className: '-=active', zIndex: 1})
+
+					.set($sQrightFirst, {x: '0', autoAlpha: 1, className: '+=active', zIndex: 4})
+					.set($sQrightOut , {className: '-=active', zIndex: 1})
+
+					.set($sQcenterFirst, {y: '0', autoAlpha: 1, className: '+=active', zIndex: 4})
+					.set($sQcenterOut , {className: '-=active', zIndex: 1})
+
+					.to($sQleftFirst, 1.5, {x: '+=100%', zIndex: 4, ease:Power3.easeInOut}, 0)
+					.to($sQleftOut, 1.5, {x: '-100%', zIndex: 1, ease:Power3.easeInOut}, 0)
+
+					.to($sQrightFirst, 1.5, {x: '-=100%', zIndex: 4, ease:Power3.easeInOut, onComplete: foo}, 0)
+					.to($sQrightOut, 1.5, {x: '100%', zIndex: 1, ease:Power3.easeInOut}, 0)
+
+					.to($sQcenterFirst, 1.5, {y: '-=100%', zIndex: 4, ease:Power3.easeInOut, onComplete: foo}, 0)
+					.to($sQcenterOut, 1.5, {y: '100%', zIndex: 1, autoAlpha: 0, ease:Power3.easeInOut}, 0)
+			}
+		}
+
+		function foo() {
+			$btnNext.removeClass('animate');
+		}
+
+		$btnNext.on('click', function(e){
+			e.preventDefault();
+			if($(this).hasClass('animate')) return false;
+
+			$(this).addClass('animate');
+
+			var sQleft = $('.sq-carousel-l'),
+					sQright = $('.sq-carousel-r'),
+					sQcenter = $('.sq-carousel-c');
+
+			goToNextSlide(sQleft, sQright, sQcenter);
+		});
+
+	})();
+
+
+	(function(){
+		var $activeSlide = $('.active'),
+			$slide = $('.carousel_layout-item'),
+			$visibleSlide = $(':nth-child(-n+3)'),
+			$layout = $('.carousel_layout'),
+			$btnNext = $('.carousel_layout-next');
+
+		function initProjects() {
+			TweenLite.set($slide.not($visibleSlide), {
+				autoAlpha: 0
+			});
+
+			var tl = new TimelineLite();
+			tl
+				.set($('.carousel_layout-item.active'), {x: '0', rotationY: 13, transformOrigin:"left 50%"})
+				.set($('.carousel_layout-item.active').next(), {x: '-7%', scaleX:0.92, scaleY:0.92, rotationY: 15, transformOrigin:"left 50%"})
+				.set($('.carousel_layout-item.active').next().next(), {x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 15, transformOrigin:"left 50%"})
+				.set($('.carousel_layout-item.active').next().next().next(), {x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 15, transformOrigin:"left 50%"})
+		};
+
+		initProjects();
+
+		function refreshSlide(current, prev, prevPrev, prevPrevPrev) {
+			var tl = new TimelineLite();
+				tl
+					.set(current, {x: '0', autoAlpha: 1, scaleX: 1, scaleY: 1, className: '-=active', zIndex: 3})
+					.set(prev, {x: '-7%', scaleX: 0.92, scaleY: 0.92, className: '+=active', zIndex: 2})
+					.set(prevPrev, {x: '-13%', scaleX: 0.85, scaleY: 0.85, zIndex: 1})
+					.set(prevPrevPrev, {autoAlpha: 0, x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 13, transformOrigin:"left 50%"})
+
+					.to(current, 0.5, {x: '0', autoAlpha: 0, scaleX: 1.1, scaleY: 1.1, ease:Power3.easeInOut}, 0)
+					.to(prev, 0.5, {x: '+=7%', scaleX: 1, scaleY: 1, ease:Power3.easeInOut}, 0)
+					.to(prevPrev, 0.5, {x: '+=6%', scaleX: 0.92, scaleY: 0.92, ease:Power3.easeInOut}, 0)
+					.to(prevPrevPrev, 0.5, {autoAlpha: 1, ease:Power3.easeInOut}, 0)
+				
+		}
+
+		$btnNext.on('click', function(e){
+			e.preventDefault();
+			//if($(this).hasClass('animate')) return false;
+
+			//$(this).addClass('animate');
+
+			var current = $('.carousel_layout').find('.active'),
+				prev = current.next(),
+				prevPrev = prev.next(),
+				prevPrevPrev = prevPrev.next(),
+				length = $('.carousel_layout').find('.carousel_layout-item').length;
+
+			refreshSlide(current, prev, prevPrev, prevPrevPrev)
+		});
+
+	})();
+
+
 
 });
