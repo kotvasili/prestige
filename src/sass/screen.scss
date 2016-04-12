@@ -932,7 +932,8 @@ body {
 	top: 29%;
 	left: 23%;
 	//transform: translate(-50%, -50%);
-	max-width: 40%;
+	max-width: 700px;
+	z-index: 5;
 	.title {
 		font-family: $PragmaticaBlack;
 		font-size: 90px;
@@ -1065,9 +1066,151 @@ body {
 			bottom: 1%;
 			right: 25%;
 		}
+		&.letters-e {
+			top: 2%;
+			left: 15%;
+		}
+		&.letters-s {
+			bottom: -4%;
+			right: 19%;
+		}
 	}
 }
 .section_services {
 	padding: 142px 0;
 	position: relative;
+	text-align: center;
+	.lead {
+		top: 24%;
+		max-width: 700px;
+	}
+	.work_gallery {
+		width: 100%;
+		padding: 135px 0;
+		position: relative;
+		max-width: 1600px;
+		margin: 0 auto;
+		.work_gallery-item {
+			display: inline-block;
+			vertical-align: middle;
+			position: relative;
+			a {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			&.work_gallery-item-small {
+				width: 437px;
+				height: 264px;
+				//transform: scale(0.66);
+				.work_gallery-img {
+					img {
+						opacity: 0.2;
+						transition: opacity 0.5s ease;
+					}
+				}
+				&.work_gallery-item-small_left {
+					.work_gallery-img {
+						img {
+							top: -28%;
+						}
+					}
+				}
+				&.work_gallery-item-small_right {
+					.work_gallery-img {
+						img {
+							top: -72%;
+						}
+					}
+				}
+				a {
+					&:hover {
+						.work_gallery-img {
+							img {
+								opacity: 0.7;
+							}
+						}
+					}
+				}
+				&.work_gallery-item-small_right {
+					position: absolute;
+					top: -5%;
+					right: 8%;
+				}
+				&.work_gallery-item-small_left {
+					position: absolute;
+					bottom: -5%;
+					left: 8%;
+				}
+			}
+			&.work_gallery-item-big {
+				width: 661px;
+				height: 395px;
+				z-index: 3;
+				transform: translate(0, 0);
+				transition: transform 0.5s ease;
+				&.top_right {
+					transform: translate(20%, -20%);
+				}
+				&.bottom_left {
+					transform: translate(-20%, 20%);
+				}
+				.work_gallery-img {
+					img {
+						opacity: 0.5;
+						transition: opacity 0.5s ease;
+					}
+				}
+				a {
+					&:hover {
+						.work_gallery-img {
+							img {
+								opacity: 0.7;
+							}
+						}
+					}
+				}
+			}
+			.work_gallery-img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				overflow-y: hidden;
+				position: relative;
+				background-color: #000;
+				img {
+					width: 100%;
+					display: block;
+					position: relative;
+					top: -50%;
+				}
+			}
+			.work_gallery-name {
+				position: absolute;
+				padding: 15px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				font-family: $PragmaticaBold;
+				font-size: 36px;
+				color: $white;
+				display: inline-block;
+				width: 70%;
+			}
+		}
+	}
+}
+.carousel_layout-text {
+	position: absolute;
+	top: 0;
+	font-size: 22px;	
+}
+.section_about {
+	padding: 142px 0;
+	position: relative;
+	text-align: center;
+	background-image: url(../img/background.jpg);
+	background-size: cover;
+	background-position: 50% 50%;
+	background-color: #000;
 }

@@ -83,21 +83,20 @@ $(document).ready(function () {
 			bgItem.append('<div class="sq-carousel_mask sq-carousel_mask-first"><div class="sq-carousel_mask-inner" style="' + bg + '"></div></div><div class="sq-carousel_mask sq-carousel_mask-second"><div class="sq-carousel_mask-inner" style="' + bg +'"></div></div>');	
 		});
 		maskSize();
-		if($('.sq-carousel_mask-inner').length) {
-			Motion($('.sq-carousel_mask-inner'));
-		}
 	}
 	appendSlide();	
 
 	function Motion($motion) {
 		var $direction, $wrapper;
 
+		//console.log($motion.length)
+
 		$('.sq-carousel').on('mousemove', function(e){
 			var x, y,
 				deltaX = e.pageX,
 				deltaY = e.pageY;
 
-				$motion.each(function(){
+				//$motion.each(function(){
 					var speedX, speedY,
 						direction = $(this).data('direction') || 1;
 
@@ -107,10 +106,14 @@ $(document).ready(function () {
 						x = Math.round((deltaX) * speedX) / 790;
 						y = Math.round((deltaY) * speedY) / 590;
 
-						TweenLite.to($motion, 1,{x: x, y: y})
-				});
+						TweenLite.to($('.sq-carousel-item.active').find('.sq-carousel_mask-inner'), 1,{x: x, y: y})
+				//});
 		});
-	};	
+	};
+	function MotionKill($motion) {
+			//console.log($motion.length)
+			TweenLite.killTweensOf($motion);
+	};
 	
 	function maskSize() {
 		var rotator = $('.sq-carousel-r'),
@@ -167,6 +170,7 @@ $(document).ready(function () {
 			TweenLite.set($slide.not($activeSlide), {
 				autoAlpha: 0
 			});
+			Motion();
 			var tl1 = new TimelineLite();
 			tl1
 				.set($rCarousel, {x: '100%'})
@@ -235,6 +239,8 @@ $(document).ready(function () {
 
 		function foo() {
 			$btnNext.removeClass('animate');
+			Motion();
+			MotionKill($('.sq-carousel-item.active').siblings().find('.sq-carousel_mask-inner'));
 		}
 
 		$btnNext.on('click', function(e){
@@ -259,11 +265,13 @@ $(document).ready(function () {
 			$visibleSlide = $(':nth-child(-n+3)'),
 			$layout = $('.carousel_layout'),
 			$btnNext = $('.carousel_layout-next');
+		
 
 		function initProjects() {
-			TweenLite.set($slide.not($visibleSlide), {
-				autoAlpha: 0
-			});
+				TweenLite.set($slide.not($visibleSlide), {
+					autoAlpha: 0
+				});
+				
 
 			var tl = new TimelineLite();
 			tl
@@ -281,7 +289,7 @@ $(document).ready(function () {
 					.set(current, {x: '0', autoAlpha: 1, scaleX: 1, scaleY: 1, className: '-=active', zIndex: 3})
 					.set(prev, {x: '-7%', scaleX: 0.92, scaleY: 0.92, className: '+=active', zIndex: 2})
 					.set(prevPrev, {x: '-13%', scaleX: 0.85, scaleY: 0.85, zIndex: 1})
-					.set(prevPrevPrev, {autoAlpha: 0, x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 13, transformOrigin:"left 50%"})
+					.set(prevPrevPrev, {autoAlpha: 0, x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 13, transformOrigin:"left 50%", zIndex: 0})
 
 					.to(current, 0.5, {x: '0', autoAlpha: 0, scaleX: 1.1, scaleY: 1.1, ease:Power3.easeInOut}, 0)
 					.to(prev, 0.5, {x: '+=7%', scaleX: 1, scaleY: 1, ease:Power3.easeInOut}, 0)
@@ -295,18 +303,58 @@ $(document).ready(function () {
 			//if($(this).hasClass('animate')) return false;
 
 			//$(this).addClass('animate');
+			var length = $('.carousel_layout').find('.carousel_layout-item').length,
+				currentIndex = $('.carousel_layout').find('.active').index()+1;
 
-			var current = $('.carousel_layout').find('.active'),
-				prev = current.next(),
-				prevPrev = prev.next(),
-				prevPrevPrev = prevPrev.next(),
-				length = $('.carousel_layout').find('.carousel_layout-item').length;
+			if(currentIndex != length) {
+				
+			}
 
-			refreshSlide(current, prev, prevPrev, prevPrevPrev)
+				var current = $('.carousel_layout').find('.active'),
+					prev = current.next(),
+					prevPrev = prev.next(),
+					prevPrevPrev = prevPrev.next();
+				refreshSlide(current, prev, prevPrev, prevPrevPrev);		
 		});
 
 	})();
 
+
+	function workLink(){
+		var parent = $('.work_gallery');
+
+		parent.each(function(){
+			var _ = $(this),
+				link = _.find('a'),
+				center = _.find('.center');
+			var tl = new TimelineLite();
+
+			
+
+			link.on('mouseover', function(){
+				var $this = $(this);
+				if($this.parent().hasClass('left')) {
+					center.addClass('top_right');					
+				} else if ($this.parent().hasClass('right')) {
+					center.addClass('bottom_left');	
+				} else {
+					return false;
+				}
+			});
+			link.on('mouseout', function (event) {
+				var $this = $(this),
+						$target = $(event.target);
+
+					if($target.parents('.work_gallery-item').hasClass('left')) {
+						center.removeClass('top_right')
+					} else if($target.parents('.work_gallery-item').hasClass('right')) {
+						center.removeClass('bottom_left');
+					};
+			})
+
+		});
+	};
+	workLink();
 
 
 });
