@@ -3,7 +3,7 @@
 
 html {
 	text-size-adjust: 100%;
-	font-size: 100%;
+	font-size: 16px;
 	height: 100%;
 }
 body {
@@ -124,7 +124,8 @@ body {
 		bottom: 0;
 		left: 0;
 		height: $h90;
-		padding-left: 39px;
+		//padding-left: 39px;
+		@include x-rem(padding-left, 39px);
 	}
 	&.frame_left {
 		top: $h90;
@@ -136,12 +137,15 @@ body {
 .logo {
 	font-family: $PragmaticaBlack;
 	color: $white;
-	font-size: 28px;
+	//font-size: 28px;
+	@include x-rem(font-size, 28px);
 	text-transform: uppercase;
 	line-height: $h90;
 	float: left;
-	padding: 0 39px;
-	letter-spacing: 0.99px;
+	//padding: 0 39px;
+	@include x-rem(padding, 0 39px);
+	//letter-spacing: 0.99px;
+	@include x-rem(letter-spacing, 0.99px);
 }
 .humburger {
 	width: $h90;
@@ -149,8 +153,10 @@ body {
 	float: right;
 	span {
 		display: inline-block;
-		width: 32px;
-		height: 20px;
+		//width: 32px;
+		@include x-rem(width, 32px);
+		//height: 20px;
+		@include x-rem(height, 20px);
 		position: relative;
 		&::after {
 			content: '';
@@ -192,17 +198,22 @@ body {
 	position: relative;
 	width: $h90;
 	font-size: 12px;
+	@include x-rem(font-size, 12px);
 	transform: translateZ(0);
 	a {
 		font-family: $PragmaticaBook;
-		font-size: 12px;
+		//font-size: 12px;
+		@include x-rem(font-size, 12px);
 		transform: rotate(-90deg);
 		position: absolute;
 		color: $white;
 		text-transform: uppercase;
-		letter-spacing: 3.99px;
-		top: -47px;
-		left: -48px;
+		//letter-spacing: 3.99px;
+		@include x-rem(letter-spacing, 3.99px);
+		//top: -47px;
+		@include x-rem(top, -47px);
+		// left: -48px;
+		@include x-rem(left, -48px);
 		line-height: $h90;
 		color: rgba(255,255,255,.5);
 		transition: color 0.3s ease;
@@ -220,11 +231,13 @@ body {
 }
 .copyright {
 	font-family: $PragmaticaBook;
-	font-size: 12px;
+	// font-size: 12px;
+	@include x-rem(font-size, 12px);
 	color: rgba(255,255,255,0.5);
 	line-height: $h90;
 	text-transform: uppercase;
-	letter-spacing: 3.69px;
+	// letter-spacing: 3.69px;
+	@include x-rem(letter-spacing, 3.69px);
 	float: left;
 }
 .shared {
@@ -240,15 +253,19 @@ body {
 		cursor: default;
 	}
 	.shared-icon-social {
-		width: 22px;
-		height: 22px;
+		// width: 22px;
+		@include x-rem(width, 22px);
+		// height: 22px;
+		@include x-rem(height, 22px);
 		position: absolute;	
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
 		.icon {
-			width: 22px;
-			height: 22px;
+			// width: 22px;
+			@include x-rem(width, 22px);
+			// height: 22px;
+			@include x-rem(height, 22px);
 			display: block;
 			path {
 				fill: rgba(255,255,255,.5);
@@ -929,10 +946,10 @@ body {
 }
 .lead {
 	position: absolute;
-	top: 29%;
+	top: 25.5%;
 	left: 23%;
 	//transform: translate(-50%, -50%);
-	max-width: 700px;
+	max-width: 800px;
 	text-align: left;
 	z-index: 5;
 	.title {
@@ -949,6 +966,13 @@ body {
 		font-size: 36px;
 		color: $white;
 		line-height: 1.3;
+		a {
+			font-family: $PragmaticaBold;
+			font-size: 36px;
+			text-transform: none;
+			padding: 0;
+			letter-spacing: 0;
+		}
 	}
 }
 .section_projects {
@@ -961,7 +985,7 @@ body {
 	}
 	.carousel_layout-container {
 		display: inline-block;
-		margin-left: 12%;
+		margin-left: 8%;
 		.carousel_layout {
 			width: 980px;
 			height: 675px;
@@ -1040,7 +1064,7 @@ body {
 	}
 	.link_case {
 		text-align: left;
-		padding-left: 8%;
+		padding-left: 9.7%;
 		.link-dash {
 			display: inline-block;		
 		}
@@ -1060,29 +1084,29 @@ body {
 		opacity: 0.2;
 		position: absolute;
 		&.letters-p {
-			top: 5%;
-			left: 13%;
+			top: 3%;
+			left: 11.5%;
 		}
 		&.letters-r {
-			bottom: 1%;
-			right: 25%;
+			bottom: -2%;
+			right: 27%;
 		}
 		&.letters-e {
-			top: 2%;
-			left: 15%;
+			top: 1%;
+			left: 16%;
 		}
 		&.letters-s {
-			bottom: -4%;
-			right: 19%;
+			bottom: -3.6%;
+			right: 20.3%;
 		}
 	}
 }
 .section_services {
-	padding: 0 0 142px;
+	padding: 118px 0 139px;
 	position: relative;
 	text-align: center;
 	.lead {
-		top: 24%;
+		top: 23%;
 		max-width: 700px;
 	}
 	.work_gallery {
@@ -1135,13 +1159,13 @@ body {
 				}
 				&.work_gallery-item-small_right {
 					position: absolute;
-					top: -5%;
-					right: 8%;
+					top: -7%;
+					right: 10.45%;
 				}
 				&.work_gallery-item-small_left {
 					position: absolute;
-					bottom: -5%;
-					left: 8%;
+					bottom: -4.2%;
+					left: 10.4%;
 				}
 			}
 			&.work_gallery-item-big {
@@ -1207,9 +1231,9 @@ body {
 	font-size: 22px;	
 }
 .section_about {
-	padding: 142px 0;
+	padding: 161px 0 208px;
 	position: relative;
-	text-align: center;
+	text-align: left;
 	background-color: #000;
 	&::after {
 		content: '';
@@ -1228,8 +1252,214 @@ body {
 		left: auto;
 		top: auto;
 	}
+	.link_case {
+		display: inline-block;
+		text-align: left;
+		margin-left: 11.5%;
+	}
+	.burnImg1 {
+		max-width: 535px;
+		width: 33.5%;
+		height: 395px;
+		left: 0;
+		top: 48%;
+	}
+	.burnImg2 {
+		width: 555px;
+		height: 750px;
+		right: 8.7%;
+		top: 10%;
+	}
 }
 .section_container {
-	max-width: 855px;
+	max-width: 865px;
 	margin: 0 auto;
+	position: relative;
+	z-index: 5;
+	.date {
+		font-family: $PragmaticaBold;
+		//font-size: 71.96px;
+		@include x-rem(font-size, 71.96px);
+		color: rgba(255,255,255,0.04);
+		// letter-spacing: 14.9px;
+		@include x-rem(letter-spacing, 14.9px);
+		position: absolute;
+		top: 43.5%;
+		z-index: 5;
+		transform: rotate(270deg);
+		left: 4.3%;
+	}
+}
+.text-lock {
+	@include x-rem(width, 380px);
+	//width: 380px;
+	text-align: left;
+	margin-left: 25.8%;
+	//margin-top: 54px;
+	//margin-bottom: 60px;
+	@include x-rem(margin-top, 54px);
+	@include x-rem(margin-bottom, 60px);
+	.headingWrap {
+		font-family: $PragmaticaBook;
+		font-size: 14px;
+		color: $white;
+		text-transform: uppercase;
+		line-height: 2.14;
+		letter-spacing: 3.7px;
+		margin-bottom: 38px;
+	}
+	p {
+		font-family: $PragmaticaBook;
+		font-size: 16px;
+		color: $white;
+		letter-spacing: 1.6px;
+		line-height: 1.9;
+	}
+}
+.burnable {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	.burn {
+		position: absolute;
+		background-color: #000;
+		overflow: hidden;
+		img {
+			position: relative;
+			opacity: 0.2;
+			width: 100%;
+			display: block;
+		}
+	}
+}
+.section_designer {
+	position: relative;
+	padding: 181px 0;
+	.lead {
+		position: relative;
+		left: auto;
+		top: auto;
+	}
+}
+.carousel__container {
+	max-width: 1220px;
+	margin: 0 auto;
+	@include clearfix;
+}
+.carousel__designer {
+	//width: 1127px;
+	padding-top: 107px;
+	overflow: visible;
+	@include x-rem(max-width, 1127px);
+	float: left;
+	.carousel__designer-rotator {
+		.carousel__designer-slide {
+			font-size: 0;			
+			&:not(.swiper-slide-active) {
+				opacity: 0!important;
+			}
+			.carousel__designer-item {
+				//padding: 107px 0 0;
+				width: 280px;
+				display: inline-block;
+				vertical-align: top;
+				position: relative;
+				&:nth-of-type(1) {
+					margin: 27px 0 0;
+				}
+				&:nth-of-type(2) {
+					margin: 0 10.55%;
+				}
+				&:nth-of-type(3) {
+					margin: 120px 0 0;
+				}
+				.counter {
+					position: absolute;
+					font-family: $PragmaticaCondensedBlack;
+					@include x-rem(font-size,  72px);
+					color: $white;
+					opacity: 0.05;
+					top: -102px;
+					left: -55px;
+					z-index: 6;
+					letter-spacing: 6.9px;
+					transform: translate(0, 0);
+					transition: transform 0.3s ease;	
+				}
+				.carousel__designer-img {
+					@include x-rem(width, 280px);	
+					@include x-rem(height, 380px);
+					overflow: hidden;
+					@include x-rem(margin-bottom,  16px);
+					transform: translate(0, 0);
+					transition: transform 0.3s ease;					
+					position: relative;
+					img {
+						width: 100%;
+						display: block;
+						position: relative;
+					}
+				}
+				.designer-name {
+					font-family: $PragmaticaBlack;
+					font-size: 16px;
+					color: $white;
+					transition: color 0.3s ease;
+					text-transform: uppercase;
+					position: relative;
+					padding: 6px 0;
+					letter-spacing: 3.1px;
+					margin-bottom: 9px;
+					display: inline-block;
+					&::after {
+						content: '';
+						position: absolute;
+						top: 95%;
+						height: 2px;
+						right: 4px;
+						left: 0;
+						background-color: $red;
+						transition: top 0.3s ease;
+					}
+				}
+				.designer-position {
+					font-family: $PragmaticaBook;
+					font-size: 14px;
+					color: $white;
+					text-transform: uppercase;
+					display: inline-block;
+					letter-spacing: 3.4px;
+					line-height: 2.1;
+				}
+				&:hover {
+					.counter {
+						transform: translate(0, 68%);
+					}
+					.carousel__designer-img {
+						transform: translate(12%, 14%);
+					}
+					.designer-name {
+						color: $red;
+						&:after {
+							top: 5%;
+						}
+					}
+				}
+			}
+		}
+			
+	}
+	.carousel__designer-next {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		span {
+			width: 40px;
+			height: 40px;
+			background-color: #fff;
+		}
+	}
 }

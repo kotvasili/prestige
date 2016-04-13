@@ -100,6 +100,19 @@ $(document).ready(function () {
 	};
 	burger();
 
+	//swiper
+
+	var design = $('.carousel__designer');
+	if(design.length) {
+
+		var swiper = new Swiper(design, {
+			effect: 'fade',
+			slidesPerView: 1,
+			nextButton: '.swiper-button-next',
+			loop: true
+		});
+	}
+
 	//Parallax
 	if($('.parallax').length) {
 		Parallax($('.parallax'));
