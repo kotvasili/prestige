@@ -24,7 +24,7 @@ $(document).ready(function () {
 		var swiper = new Swiper(design, {
 			effect: 'fade',
 			slidesPerView: 1,
-			nextButton: '.swiper-button-next',
+			nextButton: '.carousel__designer-next',
 			loop: true
 		});
 	}
@@ -369,5 +369,42 @@ $(document).ready(function () {
 	};
 	workLink();
 
+
+	function moveServices(element){
+		this.config = {
+			leftSide:  '.work_gallery-item.left',
+			centerSide: '.work_gallery-item.center',
+			rightSide: '.work_gallery-item.right'
+		};
+		$.extend(this.config || {});
+		this.$el = element instanceof jQuery ? element : $(element);
+		this.init()
+	}
+
+	moveServices.prototype = {
+		constructor: moveServices,
+
+		_initPos: function() {
+			var move = new TimelineLite(),
+				_ = this;
+
+				move
+					.set(_.$left, {x: '0', y:'0', scaleX:1, scaleY:1 })
+					.set(_.$center, {x: '0', y:'0', scaleX:1, scaleY:1 })
+					.set(_.$right, {x: '0', y:'0', scaleX:1, scaleY:1 })
+		},		
+		init: function(){
+			var _ = this;
+				_.$left = _.$el.find(_.config.leftSide);
+				_.$center = _.$el.find(_.config.centerSide);
+				_.$right = _.$el.find(_.config.rightSide);
+			_._initPos();
+		}
+	};
+
+	var services = $('.section_services');
+	if(services) {
+		services = new moveServices(services);
+	}
 
 });
