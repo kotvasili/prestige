@@ -1,4 +1,11 @@
 $(document).ready(function () {
+
+	//images or links draggeble
+	function drag() {
+		$("img, a").on("dragstart", function(event) { event.preventDefault(); });
+	}
+	drag();
+
 	setTimeout(function(){
 		$(window).scrollTop(0);
 	}, 100);

@@ -1040,6 +1040,7 @@ body {
 						top: -50%;
 						opacity: 0.5;
 						width: 100%;
+						user-select: none;
 					}
 				}
 			}
@@ -1449,6 +1450,8 @@ body {
 		z-index: 5;
 		transform: rotate(270deg);
 		left: 4.3%;
+		user-select: none;
+		pointer-events: none;
 	}
 }
 .text-lock {
