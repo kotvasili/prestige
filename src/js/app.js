@@ -20,7 +20,13 @@ $(document).ready(function () {
 
 	var design = $('.carousel__designer');
 	if(design.length) {
+		var designerNav = design.find('.carousel__designer-navi'),
+			itemLength = design.find('.designer-slide').length - design.find('.swiper-slide-duplicate').length;
 
+		console.log(itemLength)
+		if(itemLength === 1) {
+			designerNav.hide();
+		}
 		var swiper = new Swiper(design, {
 			effect: 'fade',
 			slidesPerView: 1,
@@ -192,6 +198,11 @@ $(document).ready(function () {
 				.to($rCarousel, 1.5, {x: '-=100%', ease:Power3.easeInOut},0)
 				.to($lCarousel, 1.5, {x: '+=100%', ease:Power3.easeInOut},0)
 				.to($cCarousel, 1.5, {y: '-=100%', ease:Power3.easeInOut},0)
+
+			if($rCarousel.find('.sq-carousel-item').length === 1 || $lCarousel.find('.sq-carousel-item').length === 1 || $cCarousel.find('.sq-carousel-item').length === 1) {
+				$btnNext.hide()
+			}
+
 		}
 		init();
 
@@ -277,58 +288,118 @@ $(document).ready(function () {
 			$slide = $('.carousel_layout-item'),
 			$visibleSlide = $(':nth-child(-n+3)'),
 			$layout = $('.carousel_layout'),
-			$btnNext = $('.carousel_layout-next');
+			$btnNext = $('.carousel_layout-next'),
+			$slideText = $('.carousel_text-item');
 		
 
 		function initProjects() {
-				TweenLite.set($slide.not($visibleSlide), {
-					autoAlpha: 0
-				});
-				
+			if($slide.length === 1) $btnNext.hide();
+
+			TweenLite.set($slide.not($visibleSlide), {
+				autoAlpha: 0
+			});
+			TweenLite.set($slideText.not($activeSlide), {
+				autoAlpha: 0
+			});				
 
 			var tl = new TimelineLite();
 			tl
-				.set($('.carousel_layout-item.active'), {x: '0', rotationY: 13, transformOrigin:"left 50%"})
-				.set($('.carousel_layout-item.active').next(), {x: '-7%', scaleX:0.92, scaleY:0.92, rotationY: 15, transformOrigin:"left 50%"})
-				.set($('.carousel_layout-item.active').next().next(), {x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 15, transformOrigin:"left 50%"})
-				.set($('.carousel_layout-item.active').next().next().next(), {x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 15, transformOrigin:"left 50%"})
+				.set($('.carousel_layout-item.active'), {x: '0', rotationY: 17, transformOrigin:"left 50%"})
+				.set($('.carousel_layout-item.active').next(), {x: '-2.9%', scaleX:0.92, scaleY:0.92, rotationY: 17, transformOrigin:"left 50%"})
+				.set($('.carousel_layout-item.active').next().next(), {x: '-5.1%', scaleX:0.85, scaleY:0.85, rotationY: 17, transformOrigin:"left 50%"})
+				.set($('.carousel_layout-item.active').next().next().next(), {x: '-5.1%', scaleX:0.85, scaleY:0.85, rotationY: 17, transformOrigin:"left 50%"})
 		};
 
 		initProjects();
 
 		function refreshSlide(current, prev, prevPrev, prevPrevPrev) {
-			var tl = new TimelineLite();
-				tl
-					.set(current, {x: '0', autoAlpha: 1, scaleX: 1, scaleY: 1, className: '-=active', zIndex: 3})
-					.set(prev, {x: '-7%', scaleX: 0.92, scaleY: 0.92, className: '+=active', zIndex: 2})
-					.set(prevPrev, {x: '-13%', scaleX: 0.85, scaleY: 0.85, zIndex: 1})
-					.set(prevPrevPrev, {autoAlpha: 0, x: '-13%', scaleX:0.85, scaleY:0.85, rotationY: 13, transformOrigin:"left 50%", zIndex: 0})
+			var tl = new TimelineLite({onComplete: circleSlide});
+			tl
+				.set(current, {x: '0', autoAlpha: 1, scaleX: 1, scaleY: 1, className: '-=active', zIndex: 3})
+				.set(prev, {x: '-2.9%', scaleX: 0.92, scaleY: 0.92, className: '+=active', zIndex: 2})
+				.set(prevPrev, {x: '-5.1%', scaleX: 0.85, scaleY: 0.85, zIndex: 1})
+				.set(prevPrevPrev, {autoAlpha: 0, x: '-5.1%', scaleX:0.85, scaleY:0.85, rotationY: 17, transformOrigin:"left 50%", zIndex: 0})
 
-					.to(current, 0.5, {x: '0', autoAlpha: 0, scaleX: 1.1, scaleY: 1.1, ease:Power3.easeInOut}, 0)
-					.to(prev, 0.5, {x: '+=7%', scaleX: 1, scaleY: 1, ease:Power3.easeInOut}, 0)
-					.to(prevPrev, 0.5, {x: '+=6%', scaleX: 0.92, scaleY: 0.92, ease:Power3.easeInOut}, 0)
-					.to(prevPrevPrev, 0.5, {autoAlpha: 1, ease:Power3.easeInOut}, 0)
-				
+				.to(current, 1, {x: '0', autoAlpha: 0, scaleX: 1.1, scaleY: 1.1, ease:Power3.easeInOut}, 0)
+				.to(prev, 1, {x: '+=2.9%', scaleX: 1, scaleY: 1, ease:Power3.easeInOut}, 0)
+				.to(prevPrev, 1, {x: '+=2.2%', scaleX: 0.92, scaleY: 0.92, ease:Power3.easeInOut}, 0)
+				.to(prevPrevPrev, 1, {autoAlpha: 1, ease:Power3.easeInOut}, 0)		
+		}
+
+		function refreshText(currentTextOut, currentTextIn) {
+			var $first = currentTextOut.parents().find('.carousel_text-item:first-of-type'),
+				$titleOut = currentTextOut.find('.title'),
+				$titleIn = currentTextIn.find('.title'),
+				$titleInFirst = $first.find('.title'),
+				tl = new TimelineLite();
+
+				console.log($(currentTextIn).length)
+
+			if(currentTextIn.length !== 0) {
+				tl
+					.set(currentTextIn, {y: '15%', autoAlpha: 0, className: '+=active', zIndex: 4})
+					.set(currentTextOut, {className: '-=active', zIndex: 1, autoAlpha: 1})
+
+					.to(currentTextIn, 1, {y: '-=15%', autoAlpha: 1, ease:Power3.easeInOut}, 0)
+					.to(currentTextOut, 1, {y: '-=15%', autoAlpha: 0, zIndex: 1, ease:Power3.easeInOut}, 0)
+			} else {
+				tl
+					.set($first, {y: '15%', autoAlpha: 0, className: '+=active', zIndex: 4})
+					.set(currentTextOut, {className: '-=active', zIndex: 1, autoAlpha: 1})
+
+					.to($first, 1, {y: '-=15%', autoAlpha: 1, ease:Power3.easeInOut}, 0)
+					.to(currentTextOut, 1, {y: '-=15%', autoAlpha: 0, zIndex: 1, ease:Power3.easeInOut}, 0)
+			}
 		}
 
 		$btnNext.on('click', function(e){
 			e.preventDefault();
-			//if($(this).hasClass('animate')) return false;
+			if($(this).hasClass('animate')) return false;
 
-			//$(this).addClass('animate');
-			var length = $('.carousel_layout').find('.carousel_layout-item').length,
-				currentIndex = $('.carousel_layout').find('.active').index()+1;
+			$(this).addClass('animate');
 
-			if(currentIndex != length) {
-				
+			var current = $('.carousel_layout').find('.active'),
+				prev = current.next(),
+				prevPrev = prev.next(),
+				prevPrevPrev = prevPrev.next(),
+				currentTextOut = $('.carousel_text-item.active'),
+				currentTextIn = $('.carousel_text-item.active').next('.carousel_text-item');
+			refreshSlide(current, prev, prevPrev, prevPrevPrev);
+			refreshText(currentTextOut, currentTextIn);
+		});
+
+		function circleSlide() {
+			var active = $('.carousel_layout-item.active'),
+				buff,
+				parent = active.parent(),
+				tl = new TimelineLite(),
+				item = $('.carousel_layout-item');
+
+			buff = active.prev().clone();
+			active.prev().remove();
+			parent.append(buff);
+
+			if( item.length === 2 ) {
+				tl
+					.set(item, {x: '0', rotationY: 17, transformOrigin:"left 50%",zIndex: 3})
+					.set(item.next(), {x: '-2.9%', scaleX:0.92, scaleY:0.92, rotationY: 17, transformOrigin:"left 50%", zIndex: 1})
+
+					.to(item.next(), 0.2, {autoAlpha: 1, ease:Power3.easeInOut}, 0)
+			} else if( item.length === 3 ) {
+				tl
+					.set(item, {x: '0', rotationY: 17, transformOrigin:"left 50%", zIndex: 3})
+					.set(item.next(), {x: '-2.9%', scaleX:0.92, scaleY:0.92, rotationY: 17, transformOrigin:"left 50%", zIndex: 2})
+					.set(item.next().next(), {x: '-5.1%', scaleX: 0.85, scaleY: 0.85, zIndex: 1})
+
+					.to(item.next(), 0.2, {autoAlpha: 1, ease:Power3.easeInOut}, 0)
+			} else {
+				tl
+					.set(item.last(), {x: '-5.1%', scaleX:0.85, scaleY:0.85, rotationY: 17, transformOrigin:"left 50%", zIndex: 0})
 			}
 
-				var current = $('.carousel_layout').find('.active'),
-					prev = current.next(),
-					prevPrev = prev.next(),
-					prevPrevPrev = prevPrev.next();
-				refreshSlide(current, prev, prevPrev, prevPrevPrev);		
-		});
+			$btnNext.removeClass('animate');
+
+		}
 
 	})();
 
@@ -342,26 +413,29 @@ $(document).ready(function () {
 				center = _.find('.center');
 			var tl = new TimelineLite();
 
-			
-
 			link.on('mouseover', function(){
 				var $this = $(this);
 				if($this.parent().hasClass('left')) {
-					center.addClass('top_right');					
+					_.addClass('top_right');					
 				} else if ($this.parent().hasClass('right')) {
-					center.addClass('bottom_left');	
+					_.addClass('bottom_left');	
+				} else if($this.parent().hasClass('center')) {
+					_.addClass('right_left');
 				} else {
 					return false;
 				}
 			});
+
 			link.on('mouseout', function (event) {
 				var $this = $(this),
 						$target = $(event.target);
 
 					if($target.parents('.work_gallery-item').hasClass('left')) {
-						center.removeClass('top_right')
+						_.removeClass('top_right')
 					} else if($target.parents('.work_gallery-item').hasClass('right')) {
-						center.removeClass('bottom_left');
+						_.removeClass('bottom_left');
+					} else if($target.parents('.work_gallery-item').hasClass('center')) {
+						_.removeClass('right_left');
 					};
 			})
 
@@ -392,7 +466,8 @@ $(document).ready(function () {
 					.set(_.$left, {x: '0', y:'0', scaleX:1, scaleY:1 })
 					.set(_.$center, {x: '0', y:'0', scaleX:1, scaleY:1 })
 					.set(_.$right, {x: '0', y:'0', scaleX:1, scaleY:1 })
-		},		
+		},
+
 		init: function(){
 			var _ = this;
 				_.$left = _.$el.find(_.config.leftSide);
@@ -404,7 +479,7 @@ $(document).ready(function () {
 
 	var services = $('.section_services');
 	if(services) {
-		services = new moveServices(services);
+		//services = new moveServices(services);
 	}
 
 });
