@@ -1063,10 +1063,27 @@ body {
 					transition: color 0.3s ease;
 					display: inline-block;
 					margin-bottom: 80px;
+					transition: color 0.3s ease;
+					&::after {
+						content: '';
+						height: 2px;
+						width: 100%;
+						background-color: $red;
+						position: absolute;
+						top: 100%;
+						left: 0;
+						transition: top 0.3s ease;
+					}
 					span {
 						font-family: $PragmaticaBook;
 						font-size: 14px;
 						letter-spacing: 2.7px;
+					}
+					&:hover {
+						color: $red;
+						&::after {
+							top: 0;
+						}
 					}
 				}
 			}
@@ -1361,6 +1378,12 @@ body {
 				}
 			}
 		}
+	}
+	.link_case {
+		display: inline-block;
+		margin-left: 10.5%;
+		position: relative;
+		top: -55px;
 	}
 }
 .carousel_layout-text {
