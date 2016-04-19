@@ -64,7 +64,8 @@ body {
 	margin: 0 auto;
 }
 .backgrounded-rgrid {
-	max-width: 662px;
+	// max-width: 662px;
+	@include x-rem(max-width, 662px);
 	margin: 0 auto;
 	position: fixed;
 	right: 0;
@@ -79,7 +80,8 @@ body {
 		height: 100%;
 		width: 100%;
 		position: absolute;
-		max-width: 662px;
+		// max-width: 662px;
+		@include x-rem(max-width, 662px);
 		margin: 0 auto;
 		@include clearfix;
 		.column {
@@ -197,7 +199,7 @@ body {
 	vertical-align: middle;
 	position: relative;
 	width: $h90;
-	font-size: 12px;
+	//font-size: 12px;
 	@include x-rem(font-size, 12px);
 	transform: translateZ(0);
 	a {
@@ -276,11 +278,14 @@ body {
 	.shared-list {
 		position: absolute;
 		bottom: 70px;
+		@include x-rem(bottom, 70px);
 		width: 100%;
 		right: 0;
 		.shared-list_item {
-			width: $h90;
-			height: 45px;
+			// width: 90px;
+			// height: 45px;
+			@include x-rem(width, 90px);
+			@include x-rem(height, 45px);
 			position: relative;
 			display: block;			
 			transform: translate(100%, 0);
@@ -349,7 +354,8 @@ body {
 	}
 	.navigation__container {
 		width: 100%;
-		padding: 146px 0;
+		//padding: 146px 0;
+		@include x-rem(padding, 146px 0);
 		background-color: $darkGrey;
 		position: relative;
 		display: inline-block;
@@ -377,8 +383,10 @@ body {
 		&::before {
 			content: 'PRESTIGE';
 			font-family: $PragmaticaCondensedBlack;
-			font-size: 200px;
-			letter-spacing: 40px;
+			// font-size: 200px;
+			@include x-rem(font-size, 200px);
+			// letter-spacing: 40px;
+			@include x-rem(letter-spacing, 40px);
 			color: rgba(255, 255, 255, 0.05);
 			position: absolute;
 			top: 45%;
@@ -387,24 +395,30 @@ body {
 			z-index: 1;
 			cursor: default;
 			@include r(1280) {
-				font-size: 145px;
+				// font-size: 145px;
+				@include x-rem(font-size, 145px);
 			}
 		}
 	}
 	.lang {
 		position: absolute;
-		right: 23px;
-		top: 43px;
+		// right: 23px;
+		@include x-rem(right, 23px);
+		// top: 43px;
+		@include x-rem(top, 43px);
 		z-index: 3;
 		.lang-item {
 			font-family: $PragmaticaBook;
-			font-size: 12px;
+			// font-size: 12px;
+			@include x-rem(font-size, 12px);
 			color: rgba(255,255,255,.5);
 			text-transform: uppercase;
 			display: inline-block;
-			padding: 10px 18px;
+			// padding: 10px 18px;
+			@include x-rem(padding, 10px 18px);
 			transition: color 0.3s ease;
-			letter-spacing: 2.99px;
+			// letter-spacing: 2.99px;
+			@include x-rem(letter-spacing, 2.99px);
 			&.active {
 				color: $white;
 			}
@@ -415,17 +429,21 @@ body {
 	}
 	.close {
 		position: absolute;
-		top: 44px;
+		// top: 44px;
+		@include x-rem(top, 44px);
 		left: 48.3%;
 		z-index: 3;
 		text-align: center;
 		cursor: pointer;
 		.menu {
-			width: 33px;
-			height: 33px;
+			// width: 33px;
+			// height: 33px;
+			@include x-rem(width, 33px);
+			@include x-rem(height, 33px);
 			display: inline-block;
 			position: relative;
-			margin-bottom: 11px;
+			// margin-bottom: 11px;
+			@include x-rem(margin-bottom, 11px);
 			&::after {
 				content: '';
 				position: absolute;
@@ -453,10 +471,12 @@ body {
 		}
 		.text {
 			font-family: $PragmaticaBook;
-			font-size: 12px;
+			// font-size: 12px;
+			@include x-rem(font-size, 12px);
 			text-transform: uppercase;
 			color: rgba(255,255,255,.5);
-			letter-spacing: 3.6px;
+			// letter-spacing: 3.6px;
+			@include x-rem(letter-spacing, 3.6px);
 			display: block;
 			width: 100%;
 			transition: color 0.5s ease;
@@ -474,10 +494,13 @@ body {
 		}
 	}
 	.wgrid {
-		max-width: 1492px;
-		padding: 0 30px;
+		// max-width: 1492px;
+		@include x-rem(max-width, 1492px);
+		// padding: 0 30px;
+		@include x-rem(padding, 0 30px);
 		@include r(1280) {
-			padding: 0 12px;
+			// padding: 0 12px;
+			@include x-rem(padding, 0 12px);
 		}
 	}
 }
@@ -532,43 +555,55 @@ body {
 			}
 			& > ul {
 				& > li {
-					margin-top: 144px;
-					margin-bottom: 20px;
+					// margin-top: 144px;
+					// margin-bottom: 20px;
+					@include x-rem(margin, 144px 0 20px);
 					@include r(1280) {
-						margin-top: 75px;
+						// margin-top: 75px;
+						@include x-rem(margin-top, 75px);
 					}
 					&.active {
 						a {
 							color: $red;
 							&::before {
 								content: '';
-								width: 2px;
-								height: 57px;
+								// width: 2px;
+								// height: 57px;
+								@include x-rem(width, 2px);
+								@include x-rem(height, 57px);
 								background-color: $red;
 								position: absolute;
-								top: -130px;
+								// top: -130px;
+								@include x-rem(top, -130px);
 								left: 50%;
-								margin-left: -6px;
+								// margin-left: -6px;
+								@include x-rem(margin-left, -6px);
 								@include r(1280) {
-									height: 40px;
-									top: -75px;
+									// height: 40px;
+									// top: -75px;
+									@include x-rem(height, 40px);
+									@include x-rem(top, -75px);
 								}
 							}
 						}
 					}
 					a {
 						font-family: $PragmaticaBold;
-						font-size: 30px;
+						// font-size: 30px;
+						@include x-rem(font-size, 30px);
 						color: $white;
-						letter-spacing: 5.99px;
+						// letter-spacing: 5.99px;
+						@include x-rem(letter-spacing, 5.99px);
 						text-transform: uppercase;
 						transition: color 0.3s ease;
 						position: relative;
 						@include r(1400) {
-							font-size: 24px;
+							// font-size: 24px;
+							@include x-rem(font-size, 24px);
 						}
 						@include r(1150) {
-								font-size: 20px;
+								// font-size: 20px;
+								@include x-rem(font-size, 20px);
 							}
 						&:hover, &.active {
 							color: $red;
@@ -579,22 +614,26 @@ body {
 					li {
 						a {
 							font-family: $PragmaticaBook;
-							font-size: 14px;
+							// font-size: 14px;
+							@include x-rem(font-size, 14px);
 							color: $white;
 							text-transform: uppercase;
-							letter-spacing: 2.79px;
-							padding: 9px 0 11px;
+							// letter-spacing: 2.79px;
+							@include x-rem(letter-spacing, 2.79px);
+							// padding: 9px 0 11px;
+							@include x-rem(padding, 9px 10px 11px 0);
 							display: inline-block;
 							line-height: 2;
 							transform: translate3d(0px, 0px, 0px);
 							transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 							position: relative;
-							padding-right: 10px;
 							@include r(1400) {
-								font-size: 12px;
+								// font-size: 12px;
+								@include x-rem(font-size, 12px);
 							}
 							@include r(1150) {
 								font-size: 10px;
+								@include x-rem(font-size, 10px);
 							}
 							&::before {
 								background-color: $red;
@@ -623,15 +662,19 @@ body {
 									transform: translate3d(0px, 10px, 0px);
 								}
 								&::before {
-									width: 30px;
+									// width: 30px;
+									@include x-rem(width, 30px);
 									@include r(1150) {
-										width: 20px;
+										// width: 20px;
+										@include x-rem(width, 20px);
 									}
 								}
 								&::after {
-									top: -15px;
+									// top: -15px;
+									@include x-rem(top, -15px);
 									@include r(1150) {
-										top: -10px;
+										// top: -10px;
+										@include x-rem(top, -10px);
 									}
 								}
 							}
@@ -644,26 +687,33 @@ body {
 }
 .media {
 	position: absolute;
-	bottom: 40px;
+	// bottom: 40px;
+	@include x-rem(bottom, 40px);
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 3;
 	.media-item {
-		width: 57px;
-		height: 37px;
+		// width: 57px;
+		@include x-rem(width, 57px);
+		// height: 37px;
+		@include x-rem(height, 37px);
 		display: block;
 		position: relative;
 		float: left;
 		.media-item_icon {
-			width: 20px;
-			height: 20px;
+			// width: 20px;
+			// height: 20px;
+			@include x-rem(width, 20px);
+			@include x-rem(height, 20px);
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%,-50%);
 			.icon {
-				width: 22px;
-				height: 22px;
+				// width: 22px;
+				// height: 22px;
+				@include x-rem(width, 22px);
+				@include x-rem(height, 22px);
 				display: block;
 				path {
 					fill: rgba(255,255,255,.5);
@@ -685,7 +735,8 @@ body {
 .footer {
 	position: relative;
 	.mapping {
-		min-height: 718px;
+		// min-height: 718px;
+		@include x-rem(max-height, 718px);
 		background-image: url(../img/bg/map.png);
 		background-position: 53% top;
 		background-repeat: no-repeat;
@@ -694,13 +745,15 @@ body {
 		position: relative;
 		left: auto;
 		top: auto;
-		margin-bottom: 13px;
+		// margin-bottom: 13px;
+		@include x-rem(margin-bottom, 13px);
 	}
 	.link-case {
 		float: left;
 		width: 78.9%;
 		text-align: right;
-		margin-top: 101px;
+		// margin-top: 101px;
+		@include x-rem(margin-top, 101px);
 	}
 	.letters {
 		.letters_item {
@@ -716,48 +769,62 @@ body {
 	position: relative;
 	width: 49.9%;
 	float: right;
-	margin-top: 101px;
+	// margin-top: 101px;
+	@include x-rem(margin-top, 101px);
 	&.contact {
-		margin-top: 81px;
+		// margin-top: 81px;
+		@include x-rem(margin-top, 81px);
 		width: 67%;
 	}
 	.block-address_title {
 		font-family: $PragmaticaBlack;
-		font-size: 18px;
+		// font-size: 18px;
+		@include x-rem(font-size, 18px);
 		color: $white;
 		text-transform: uppercase;
-		letter-spacing: 3.4px;
-		margin-bottom: 19px;
+		// letter-spacing: 3.4px;
+		@include x-rem(letter-spacing, 3.4px);
+		// margin-bottom: 19px;
+		@include x-rem(margin-bottom, 19px);
 	}
 	.block-address_container {
 		p {
 			font-family: $PragmaticaBook;
-			font-size: 14px;
+			// font-size: 14px;
+			@include x-rem(font-size, 14px);
 			color: $white;
 			text-transform: uppercase;
-			letter-spacing: 3.45px;
-			margin-bottom: 11px;
+			// letter-spacing: 3.45px;
+			@include x-rem(letter-spacing, 3.45px);
+			// margin-bottom: 11px;
+			@include x-rem(margin-bottom, 11px);
 		}
 	}
 	.dash-list {
 		position: relative;
 		li {
 			font-family: $PragmaticaBold;
-			font-size: 24px;
+			// font-size: 24px;
+			@include x-rem(font-size, 24px);
 			color: $white;
 			text-transform: uppercase;
-			padding-left: 59px;
-			letter-spacing: 4.89px;
-			margin-bottom: 27px;
+			// padding-left: 59px;
+			@include x-rem(padding-left, 59px);
+			// letter-spacing: 4.89px;
+			@include x-rem(letter-spacing, 4.89px);
+			// margin-bottom: 27px;
+			@include x-rem(margin-bottom, 27px);
 			position: relative;
 			&::before {
 				content: '';
-				width: 32px;
+				// width: 32px;
+				@include x-rem(width, 32px);
 				height: 1px;
 				background-color: $white;
 				position: absolute;
 				left: 1px;
-				top: 15px;
+				// top: 15px;
+				@include x-rem(top, 15px);
 			}
 			a {
 				color: $white;
@@ -767,11 +834,14 @@ body {
 }
 .link-dash {
 	font-family: $PragmaticaBlack;
-	font-size: 16px;
+	// font-size: 16px;
+	@include x-rem(font-size, 16px);
 	color: $white;
 	text-transform: uppercase;
-	letter-spacing: 3px;
-	padding: 5px 0;
+	// letter-spacing: 3px;
+	@include x-rem(letter-spacing, 3px);
+	// padding: 5px 0;
+	@include x-rem(padding, 5px 0);
 	position: relative;
 	transition: color 0.3s ease;
 	&::after {
@@ -832,41 +902,53 @@ body {
 			}
 			&.sq-carousel-c {
 				width: calc(100% - 180px);
-				left: 90px;
+				// left: 90px;
+				@include x-rem(left, 90px);
 				bottom: 0;
-				height: 61px;
+				// height: 61px;
+				@include x-rem(height, 61px);
 				position: absolute;
 				z-index: 51;
 				text-align: center;
-				margin-left: -6px;
+				// margin-left: -6px;
+				@include x-rem(margin-left, -6px);
 				.shader {
 					display: inline-block;
 					vertical-align: middle;
-					padding-left: 57px;
+					// padding-left: 57px;
+					@include x-rem(padding-left, 57px);
 					position: relative;
 					&::before {
 						content: '';
-						width: 32px;
+						// width: 32px;
+						@include x-rem(width, 32px);
 						height: 1px;
 						background-color: $white;
 						position: absolute;
 						left: 0;
-						top: 16px;
+						// top: 16px;
+						@include x-rem(top, 16px);
 					}
 					.link-shader {
 						font-family: $PragmaticaBold;
 						font-size: 18px;
+						@include x-rem(font-size, 18px);
 						color: $white;
-						letter-spacing: 0.9px;
-						padding: 4px 0;
+						// letter-spacing: 0.9px;
+						@include x-rem(letter-spacing, 0.9px);
+						// padding: 4px 0;
+						@include x-rem(padding, 4px 0);
 						position: relative;
 						transition: color 0.3s ease;
 						display: inline-block;
-						margin-bottom: 4px;
+						// margin-bottom: 4px;
+						@include x-rem(margin-bottom, 4px);
 						span {
 							font-family: $PragmaticaBook;
-							font-size: 14px;
-							letter-spacing: 2.9px;
+							// font-size: 14px;
+							@include x-rem(font-size, 14px);
+							// letter-spacing: 2.9px;
+							@include x-rem(letter-spacing, 2.9px);
 						}
 						&::after {
 							content: '';
@@ -905,11 +987,14 @@ body {
 		transform: translate(-50%);		
 		z-index: 10;
 		.sq-carousel-next {
-			width: 40px;
-			height: 40px;
+			// width: 40px;
+			// height: 40px;
+			@include x-rem(width, 40px);
+			@include x-rem(height, 40px);
 			.icon {
 				width: 100%;
-				height: 19px;
+				// height: 19px;
+				@include x-rem(height, 19px);
 				display: block;
 				.fill {
 					fill: $white;
@@ -967,26 +1052,32 @@ body {
 	top: 25.5%;
 	left: 23%;
 	//transform: translate(-50%, -50%);
-	max-width: 800px;
+	// max-width: 800px;
+	@include x-rem(max-width, 800px);
 	text-align: left;
 	z-index: 5;
 	.title {
 		font-family: $PragmaticaBlack;
-		font-size: 90px;
+		// font-size: 90px;
+		@include x-rem(font-size, 90px);
 		color: $red;
 		line-height: 1;
-		letter-spacing: 4.9px;
-		margin-bottom: 11px;
+		// letter-spacing: 4.9px;
+		@include x-rem(letter-spacing, 4.9px);
+		// margin-bottom: 11px;
+		@include x-rem(margin-bottom, 11px);
 		text-transform: uppercase;
 	}
 	.subtitle {
 		font-family: $PragmaticaBold;
-		font-size: 36px;
+		// font-size: 36px;
+		@include x-rem(font-size, 36px);
 		color: $white;
 		line-height: 1.3;
 		a {
 			font-family: $PragmaticaBold;
-			font-size: 36px;
+			// font-size: 36px;
+			@include x-rem(font-size, 36px);
 			text-transform: none;
 			padding: 0;
 			letter-spacing: 0;
@@ -994,20 +1085,24 @@ body {
 	}
 }
 .section_projects {
-	padding: 142px 0;
+	// padding: 142px 0;
+	@include x-rem(padding, 142px 0);
 	position: relative;
 	text-align: center;
 	.lead {
 		z-index: 10;
-		max-width: 700px;
+		// max-width: 700px;
+		@include x-rem(max-width, 700px);
 	}
 	.carousel_layout-container {
 		display: inline-block;
 		margin-left: -2.8%;
 		position: relative;
 		.carousel_layout {
-			width: 955px;
-			height: 675px;
+			// width: 955px;
+			@include x-rem(width, 955px);
+			// height: 675px;
+			@include x-rem(height, 675px);
 			margin: 0 auto;
 			position: relative;
 			perspective: 1200px;
@@ -1015,7 +1110,8 @@ body {
 				position: absolute;
 				top: 0;
 				left: 0;
-				width: 1180px;
+				// width: 1180px;
+				@include x-rem(width, 1180px);
 				height: 100%;
 				overflow: hidden;
 				perspective-origin: 0 0;
@@ -1047,8 +1143,10 @@ body {
 		}
 		.carousel_text {
 			position: absolute;
-			top: 212px;
-			left: 69px;
+			// top: 212px;
+			@include x-rem(top, 212px);
+			// left: 69px;
+			@include x-rem(left, 69px);
 			z-index: 9;
 			width: 100%;
 			.carousel_text-item {
@@ -1058,12 +1156,14 @@ body {
 				left: 0;
 				.title {
 					font-family: $PragmaticaBold;
-					font-size: 36px;
+					// font-size: 36px;
+					@include x-rem(font-size, 36px);
 					color: $white;
 					position: relative;
 					transition: color 0.3s ease;
 					display: inline-block;
-					margin-bottom: 80px;
+					// margin-bottom: 80px;
+					@include x-rem(margin-bottom, 80px);
 					transition: color 0.3s ease;
 					&::after {
 						content: '';
@@ -1077,8 +1177,10 @@ body {
 					}
 					span {
 						font-family: $PragmaticaBook;
-						font-size: 14px;
-						letter-spacing: 2.7px;
+						// font-size: 14px;
+						@include x-rem(font-size, 14px);
+						// letter-spacing: 2.7px;
+						@include x-rem(letter-spacing, 2.7px);
 					}
 					&:hover {
 						color: $red;
@@ -1094,24 +1196,32 @@ body {
 				margin-left: 7.6%;
 				@include clearfix;
 				.product_selector-item {
-					width: 310px;
+					// width: 310px;
+					@include x-rem(width, 310px);
 					float: left;
 					position: relative;
-					padding-left: 32px;
+					// padding-left: 32px;
+					@include x-rem(padding-left, 32px);
 					.product_selector-title {
 						position: absolute;
-						left: -14px;
-						top: 4px;
+						// left: -14px;
+						@include x-rem(left, -14px);
+						// top: 4px;
+						@include x-rem(top, 4px);
 						height: 100%;
-						width: 32px;
+						// width: 32px;
+						@include x-rem(width, 32px);
 						.heading {
 							height: 22%;
 							position: relative;
 							width: 100%;
 							.heading-text {
-								height: 32px;
-								left: -32px;
-								line-height: 32px;
+								// height: 32px;
+								@include x-rem(height, 32px);
+								// left: -32px;
+								@include x-rem(left, -32px);
+								// line-height: 32px;
+								@include x-rem(line-height, 32px);
 								margin: 0;
 								padding: 0;
 								position: absolute;
@@ -1125,11 +1235,13 @@ body {
 									right: 0;
 									top: 0;
 									font-family: $PragmaticaBook;
-									font-size: 12px;
+									// font-size: 12px;
+									@include x-rem(font-size, 12px);
 									text-transform: uppercase;
 									color: $white;
 									opacity: 0.5;
-									letter-spacing: 3.8px;
+									// letter-spacing: 3.8px;
+									@include x-rem(letter-spacing, 3.8px);
 									user-select: none;
 								}
 							}
@@ -1139,8 +1251,10 @@ body {
 						p {
 							font-family: $PragmaticaBook;
 							color: #fff;
-							font-size: 16px;
-							letter-spacing: 1.6px;
+							// font-size: 16px;
+							@include x-rem(font-size, 16px);
+							// letter-spacing: 1.6px;
+							@include x-rem(letter-spacing, 1.6px);
 							line-height: 1.9;
 						}
 					}
@@ -1157,8 +1271,10 @@ body {
 			right: -5%;
 			z-index: 10;
 			.carousel_layout-next {
-				width: 40px;
-				height: 40px;
+				// width: 40px;
+				// height: 40px;
+				@include x-rem(width, 40px);
+				@include x-rem(height, 40px);
 				.icon {
 					display: block;
 					width: 100%;
@@ -1195,7 +1311,8 @@ body {
 	z-index: -1;
 	.letters_item {
 		font-family: $PragmaticaCondensedBlack;
-		font-size: 200px;
+		// font-size: 200px;
+		@include x-rem(font-size, 200px);
 		color: $white;
 		opacity: 0.05;
 		position: absolute;
@@ -1226,18 +1343,22 @@ body {
 	}
 }
 .section_services {
-	padding: 118px 0 139px;
+	// padding: 118px 0 139px;
+	@include x-rem(padding, 118px 0 139px);
 	position: relative;
 	text-align: center;
 	.lead {
 		top: 23%;
-		max-width: 700px;
+		// max-width: 700px;
+		@include x-rem(max-width, 700px);
 	}
 	.work_gallery {
 		width: 100%;
-		padding: 135px 0;
+		// padding: 135px 0;
+		@include x-rem(padding, 135px 0);
 		position: relative;
-		max-width: 1600px;
+		// max-width: 1600px;
+		@include x-rem(max-width, 1600px);
 		margin: 0 auto;
 		.work_gallery-item {
 			display: inline-block;
@@ -1249,8 +1370,10 @@ body {
 				height: 100%;
 			}
 			&.work_gallery-item-small {
-				width: 437px;
-				height: 264px;
+				// width: 437px;
+				// height: 264px;
+				@include x-rem(width, 437px);
+				@include x-rem(height, 264px);
 				//transform: scale(0.66);
 				transform: translate(0, 0);
 				transition: transform 0.5s ease;
@@ -1295,8 +1418,10 @@ body {
 				}
 			}
 			&.work_gallery-item-big {
-				width: 661px;
-				height: 395px;
+				// width: 661px;
+				// height: 395px;
+				@include x-rem(width, 661px);
+				@include x-rem(height, 395px);
 				z-index: 3;
 				transform: translate(0, 0);
 				transition: transform 0.5s ease;
@@ -1338,12 +1463,14 @@ body {
 			}
 			.work_gallery-name {
 				position: absolute;
-				padding: 15px;
+				// padding: 15px;
+				@include x-rem(padding, 15px);
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%,-50%);
 				font-family: $PragmaticaBold;
-				font-size: 36px;
+				// font-size: 36px;
+				@include x-rem(font-size, 36px);
 				color: $white;
 				display: inline-block;
 				width: 70%;
@@ -1384,16 +1511,19 @@ body {
 		display: inline-block;
 		margin-left: 10.5%;
 		position: relative;
-		top: -55px;
+		// top: -55px;
+		@include x-rem(top, -55px);
 	}
 }
 .carousel_layout-text {
 	position: absolute;
 	top: 0;
-	font-size: 22px;	
+	// font-size: 22px;
+	@include x-rem(font-size, 22px);	
 }
 .section_about {
-	padding: 161px 0 208px;
+	// padding: 161px 0 208px;
+	@include x-rem(padding, 161px 0 208px);
 	position: relative;
 	text-align: left;
 	background-color: #000;
@@ -1420,21 +1550,27 @@ body {
 		margin-left: 11.5%;
 	}
 	.burnImg1 {
-		max-width: 535px;
+		// max-width: 535px;
+		@include x-rem(max-width, 535px);
 		width: 33.5%;
-		height: 395px;
+		// height: 395px;
+		@include x-rem(height, 395px);
 		left: 0;
 		top: 48%;
 	}
 	.burnImg2 {
-		width: 555px;
-		height: 750px;
+		// max-width: 555px;
+		@include x-rem(max-width, 555px);
+		width: 30%;
+		// height: 750px;
+		@include x-rem(height, 750px);
 		right: 8.7%;
 		top: 10%;
 	}
 }
 .section_container {
-	max-width: 865px;
+	// max-width: 865px;
+	@include x-rem(max-width, 865px);
 	margin: 0 auto;
 	position: relative;
 	z-index: 5;
@@ -1466,17 +1602,22 @@ body {
 	.headingWrap {
 		font-family: $PragmaticaBook;
 		font-size: 14px;
+		@include x-rem(font-size, 14px);
 		color: $white;
 		text-transform: uppercase;
 		line-height: 2.14;
-		letter-spacing: 3.7px;
-		margin-bottom: 38px;
+		// letter-spacing: 3.7px;
+		@include x-rem(letter-spacing, 3.7px);
+		// margin-bottom: 38px;
+		@include x-rem(margin-bottom, 38px);
 	}
 	p {
 		font-family: $PragmaticaBook;
-		font-size: 16px;
+		// font-size: 16px;
+		@include x-rem(font-size, 16px);
 		color: $white;
-		letter-spacing: 1.6px;
+		// letter-spacing: 1.6px;
+		@include x-rem(letter-spacing, 1.6px);
 		line-height: 1.9;
 	}
 }
@@ -1501,7 +1642,8 @@ body {
 }
 .section_designer {
 	position: relative;
-	padding: 181px 0 96px;
+	// padding: 181px 0 96px;
+	@include x-rem(padding, 118px 0 96px);
 	.lead {
 		position: relative;
 		left: auto;
@@ -1509,16 +1651,18 @@ body {
 	}
 }
 .carousel__container {
-	max-width: 1220px;
+	// max-width: 1220px;
+	@include x-rem(max-width, 1220px);
 	margin: 0 auto;
 	@include clearfix;
 }
 .carousel__designer {
 	//width: 1127px;
-	padding-top: 107px;
+	// padding-top: 107px;
+	@include x-rem(padding-top, 107px);
 	overflow: visible;
 	@include x-rem(max-width, 1127px);
-	float: left;
+	// float: left;
 	.carousel__designer-rotator {
 		.designer-slide {
 			font-size: 0;			
@@ -1557,12 +1701,16 @@ body {
 		right: -8.5%;
 		top: 52%;
 		display: block;
-		width: 40px;
-		height: 40px;
+		// width: 40px;
+		// height: 40px;
+		@include x-rem(width, 40px);
+		@include x-rem(height, 40px);
 		font-size: 16px;
 		.carousel__designer-next {
-			width: 40px;
-			height: 40px;
+			// width: 40px;
+			// height: 40px;
+			@include x-rem(width, 40px);
+			@include x-rem(height, 40px);
 			display: block;
 			.icon {
 				display: block;
@@ -1585,18 +1733,21 @@ body {
 }
 .designer-item {
 	//padding: 107px 0 0;
-	width: 280px;
+	// width: 280px;
+	@include x-rem(width, 280px);
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
 	&:nth-of-type(1) {
-		margin: 27px 0 0;
+		// margin: 27px 0 0;
+		@include x-rem(margin, 27px 0 0);
 	}
 	&:nth-of-type(2) {
 		margin: 0 10.55%;
 	}
 	&:nth-of-type(3) {
-		margin: 120px 0 0;
+		// margin: 120px 0 0;
+		@include x-rem(margin, 120px 0 0);
 	}
 	a {
 		@include clearfix;
@@ -1609,10 +1760,13 @@ body {
 		@include x-rem(font-size,  72px);
 		color: $white;
 		opacity: 0.05;
-		top: -102px;
-		left: -55px;
+		// top: -102px;
+		@include x-rem(top, -102px);
+		// left: -55px;
+		@include x-rem(left, -55px);
 		z-index: 6;
-		letter-spacing: 6.9px;
+		// letter-spacing: 6.9px;
+		@include x-rem(letter-spacing, 6.9px);
 		transform: translate(0, 0);
 		transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 		transition-delay: 0s;
@@ -1636,15 +1790,19 @@ body {
 	}
 	.designer-name {
 		font-family: $PragmaticaBlack;
-		font-size: 16px;
+		// font-size: 16px;
+		@include x-rem(font-size, 16px);
 		color: $white;
 		transition: color 0.3s ease;
 		transition-delay: 0s;
 		text-transform: uppercase;
 		position: relative;
-		padding: 6px 0;
-		letter-spacing: 3.1px;
-		margin-bottom: 9px;
+		// padding: 6px 0;
+		@include x-rem(padding, 6px 0 );
+		// letter-spacing: 3.1px;
+		@include x-rem(letter-spacing, 3.1px);
+		// margin-bottom: 9px;
+		@include x-rem(margin-bottom, 9px);
 		display: inline-block;
 		&::after {
 			content: '';
@@ -1659,11 +1817,13 @@ body {
 	}
 	.designer-position {
 		font-family: $PragmaticaBook;
-		font-size: 14px;
+		// font-size: 14px;
+		@include x-rem(font-size, 14px);
 		color: $white;
 		text-transform: uppercase;
 		display: inline-block;
-		letter-spacing: 3.4px;
+		// letter-spacing: 3.4px;
+		@include x-rem(letter-spacing, 3.4px);
 		line-height: 2.1;
 	}
 	&:hover {
