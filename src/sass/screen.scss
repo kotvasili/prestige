@@ -5,6 +5,12 @@ html {
 	text-size-adjust: 100%;
 	font-size: 16px;
 	height: 100%;
+	@include r(1280) {
+		font-size: 14px;
+	}
+	@include r(1150) {
+		font-size: 13px;
+	}
 }
 body {
 	-webkit-font-smoothing: antialiased;
@@ -104,14 +110,18 @@ body {
 		top: 0;
 		left: 0;
 		right: 0;
-		height: $h90;
+		//height: $h90;
+		@include x-rem(height, $h90);
 	}
 	&.frame_right {
-		top: $h90;
+		//top: $h90;
 		right: 0;
-		bottom: $h90;
-		width: $h90;
+		//bottom: $h90;
+		//width: $h90;
 		font-size: 0;
+		@include x-rem(bottom, $h90);
+		@include x-rem(top, $h90);
+		@include x-rem(width, $h90);
 		text-align: center;
 		&::before {
 			content: "";
@@ -125,15 +135,19 @@ body {
 		right: 0;
 		bottom: 0;
 		left: 0;
-		height: $h90;
+		//height: $h90;
 		//padding-left: 39px;
+		@include x-rem(height, $h90);
 		@include x-rem(padding-left, 39px);
 	}
 	&.frame_left {
-		top: $h90;
+		// top: $h90;
 		left: 0;
-		bottom: $h90;
-		width: $h90;
+		// bottom: $h90;
+		// width: $h90;
+		@include x-rem(bottom, $h90);
+		@include x-rem(top, $h90);
+		@include x-rem(width, $h90);
 	}
 }
 .logo {
@@ -142,7 +156,8 @@ body {
 	//font-size: 28px;
 	@include x-rem(font-size, 28px);
 	text-transform: uppercase;
-	line-height: $h90;
+	//line-height: $h90;
+	@include x-rem(line-height, $h90);
 	float: left;
 	//padding: 0 39px;
 	@include x-rem(padding, 0 39px);
@@ -150,8 +165,10 @@ body {
 	@include x-rem(letter-spacing, 0.99px);
 }
 .humburger {
-	width: $h90;
-	height: $h90;
+	// width: $h90;
+	// height: $h90;
+	@include x-rem(height, $h90);
+	@include x-rem(width, $h90);
 	float: right;
 	span {
 		display: inline-block;
@@ -198,7 +215,8 @@ body {
 	display: inline-block;
 	vertical-align: middle;
 	position: relative;
-	width: $h90;
+	// width: $h90;
+	@include x-rem(width, $h90);
 	//font-size: 12px;
 	@include x-rem(font-size, 12px);
 	transform: translateZ(0);
@@ -216,7 +234,8 @@ body {
 		@include x-rem(top, -47px);
 		// left: -48px;
 		@include x-rem(left, -48px);
-		line-height: $h90;
+		// line-height: $h90;
+		@include x-rem(line-height, $h90);
 		color: rgba(255,255,255,.5);
 		transition: color 0.3s ease;
 		span {
@@ -236,21 +255,26 @@ body {
 	// font-size: 12px;
 	@include x-rem(font-size, 12px);
 	color: rgba(255,255,255,0.5);
-	line-height: $h90;
+	// line-height: $h90;
+	@include x-rem(line-height, $h90);
 	text-transform: uppercase;
 	// letter-spacing: 3.69px;
 	@include x-rem(letter-spacing, 3.69px);
 	float: left;
 }
 .shared {
-	width: $h90;
-	height: $h90;
+	// width: $h90;
+	// height: $h90;
+	@include x-rem(width, $h90);
+	@include x-rem(height, $h90);
 	float: right;
 	position: relative;
 	transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
 	.shared-active-item {
-		width: $h90;
-		height: $h90;
+		// width: $h90;
+		// height: $h90;
+		@include x-rem(width, $h90);
+		@include x-rem(height, $h90);
 		text-align: center;
 		cursor: default;
 	}
@@ -734,12 +758,21 @@ body {
 }
 .footer {
 	position: relative;
+	@include clearfix;
 	.mapping {
 		// min-height: 718px;
-		@include x-rem(max-height, 718px);
+		@include x-rem(min-height, 718px);
 		background-image: url(../img/bg/map.png);
 		background-position: 53% top;
 		background-repeat: no-repeat;
+		@include clearfix;
+		@include r(1280) {
+			@include x-rem(min-height, 738px);
+		}
+		@include r(1280) {
+			@include x-rem(min-height, 798px);
+
+		}
 	}
 	.lead {
 		position: relative;
@@ -864,6 +897,8 @@ body {
 .section_carousel {
 	width: 100%;
 	height: 100vh;
+	max-height: 960px;
+	min-height: 550px;
 	background-color: $darkGrey;
 	//background-image: url(../img/bg/pattern.png);
 	position: relative;
@@ -1351,6 +1386,12 @@ body {
 		top: 23%;
 		// max-width: 700px;
 		@include x-rem(max-width, 700px);
+		@include r(1599) {
+			left: 18%;
+		}
+		@include r(1150) {
+			left: 8%;
+		}
 	}
 	.work_gallery {
 		width: 100%;
@@ -1410,11 +1451,17 @@ body {
 					position: absolute;
 					top: -7%;
 					right: 10.45%;
+					@include r(1150) {
+						right: 6.4%;
+					}
 				}
 				&.work_gallery-item-small_left {
 					position: absolute;
 					bottom: -4.2%;
 					left: 10.4%;
+					@include r(1150) {
+						left: 6.4%;
+					}
 				}
 			}
 			&.work_gallery-item-big {
@@ -1655,6 +1702,12 @@ body {
 	@include x-rem(max-width, 1220px);
 	margin: 0 auto;
 	@include clearfix;
+	@include r(1599) {
+		@include x-rem(max-width, 1125px);
+	}
+	@include r(1400) {
+		@include x-rem(max-width, 1008px);
+	}
 }
 .carousel__designer {
 	//width: 1127px;
@@ -1662,6 +1715,12 @@ body {
 	@include x-rem(padding-top, 107px);
 	overflow: visible;
 	@include x-rem(max-width, 1127px);
+	@include r(1599) {
+		max-width: 100%;
+	}
+	@include r(1150) {
+		margin-left: -3%;
+	}
 	// float: left;
 	.carousel__designer-rotator {
 		.designer-slide {
@@ -1705,7 +1764,17 @@ body {
 		// height: 40px;
 		@include x-rem(width, 40px);
 		@include x-rem(height, 40px);
-		font-size: 16px;
+		//font-size: 16px;
+		@include x-rem(font-size, 16px);
+		@include r(1599) {
+			right: -3.5%;
+		}
+		@include r(1400) {
+			right: -5.5%;
+		}
+		@include r(1150) {
+			right: -3%;
+		}
 		.carousel__designer-next {
 			// width: 40px;
 			// height: 40px;
@@ -1744,6 +1813,9 @@ body {
 	}
 	&:nth-of-type(2) {
 		margin: 0 10.55%;
+		@include r(1400) {
+			margin: 0 6.55%;
+		}
 	}
 	&:nth-of-type(3) {
 		// margin: 120px 0 0;
@@ -1786,6 +1858,7 @@ body {
 			width: 100%;
 			display: block;
 			position: relative;
+			top: 5%;
 		}
 	}
 	.designer-name {
