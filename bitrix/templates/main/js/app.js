@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+		$('.section__links').find('.text').css({
+			'background-image': 'none',
+			'background-color': 'transparent'
+		})
+	}
+
 	//images or links draggeble
 	function drag() {
 		$("img, a").on("dragstart", function(event) { event.preventDefault(); });
@@ -451,42 +458,22 @@ $(document).ready(function () {
 	workLink();
 
 
-	function moveServices(element){
-		this.config = {
-			leftSide:  '.work_gallery-item.left',
-			centerSide: '.work_gallery-item.center',
-			rightSide: '.work_gallery-item.right'
-		};
-		$.extend(this.config || {});
-		this.$el = element instanceof jQuery ? element : $(element);
-		this.init()
+	// isotope
+	if ($('.projects').length) {
+		isotopeSorts($('.project__grid'));
 	}
 
-	moveServices.prototype = {
-		constructor: moveServices,
-
-		_initPos: function() {
-			var move = new TimelineLite(),
-				_ = this;
-
-				move
-					.set(_.$left, {x: '0', y:'0', scaleX:1, scaleY:1 })
-					.set(_.$center, {x: '0', y:'0', scaleX:1, scaleY:1 })
-					.set(_.$right, {x: '0', y:'0', scaleX:1, scaleY:1 })
-		},
-
-		init: function(){
-			var _ = this;
-				_.$left = _.$el.find(_.config.leftSide);
-				_.$center = _.$el.find(_.config.centerSide);
-				_.$right = _.$el.find(_.config.rightSide);
-			_._initPos();
-		}
-	};
-
-	var services = $('.section_services');
-	if(services) {
-		//services = new moveServices(services);
+	function isotopeSorts(grid) {
+		var $grid = grid.isotope({
+			itemSelector: '.projects-col',
+			layoutMode: 'fitRows',
+			category: '[data-category]'
+		});
+		$('.filter__item').on('click', function(){
+			var fValue = $(this).data('filter');
+			$grid.isotope({filter: fValue});
+		})
 	}
+
 
 });

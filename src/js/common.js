@@ -6,5 +6,6 @@
 //= lib/TweenLite.min.js
 //= lib/TimelineLite.min.js
 //= lib/CSSPlugin.min.js
+//= lib/isotope.pkgd.min.js
 
 //= app.js

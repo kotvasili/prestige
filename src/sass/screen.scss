@@ -1916,3 +1916,240 @@ body {
 		}
 	}
 }
+.section__head {
+	&.head__projects {
+		@include x-rem(padding, 107px 0 0);
+	}
+	.lead {
+		position: relative;
+		left: auto;
+
+	}
+}
+.projects {
+	@include x-rem(max-width, 1450px);
+	@include clearfix;
+	margin: 0 auto;
+	@include x-rem(margin-top, 39px);
+	@include r(1599) {
+		@include x-rem(max-width, 1300px);
+	}
+	@include r(1400) {
+		@include x-rem(max-width, 1200px);
+	}
+	@include r(1150) {
+		@include x-rem(max-width, 980px);
+	}
+	.filter {
+		text-align: center;
+		display: inline-block;
+		width: 100%;
+		@include clearfix;
+		.filter__container {
+			.filter__item {
+				display: inline-block;
+				vertical-align: top;
+				position: relative;
+				padding: 0 2.7%;
+				span {
+					color: $grey;
+					font-family: $PragmaticaBold;
+					@include x-rem(font-size, 24px);
+					transition: color 0.3s ease;
+				}
+				.counter {
+					font-family: $PragmaticaBook;
+					@include x-rem(font-size, 12px);
+					@include x-rem(letter-spacing, 2px);
+					position: absolute;
+					@include x-rem(right, 16px);
+					@include x-rem(top, -10px);
+				}
+				&:hover {
+					span {
+						color: $red;
+					}
+				}
+				&.active {
+					&:hover {
+						span {
+							color: $red;
+						}
+					}
+					span {
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+	.projects__container {
+		@include clearfix;
+		position: relative;
+		// left: 2.2%;
+		@include x-rem(padding-top, 72px);
+		.project__grid {
+			@include x-rem(min-height, 505px);
+		}
+		.projects-col {
+			position: relative;
+			float: left;
+			width: 33.33%;
+			text-align: center;			
+			@include x-rem(height, 450px);
+			@include r(1150) {
+				width: 50%;
+			}
+			// &:nth-child(n+2) {
+			// 	text-align: center;
+			// }
+			// &:nth-child(3) {
+			// 	text-align: right;
+			// }			
+			&:not(:nth-child(n+3)) {
+				@include x-rem(margin, 0 0 88px);
+			}
+		}
+		.project__item {
+			@include x-rem(width, 310px);
+			position: relative;
+			display: inline-block;
+			text-align: left;
+			.project__media {
+				width: 100%;
+				@include x-rem(height, 310px);
+				overflow: hidden;
+				background-color: #000;
+				img {
+					width: 100%;
+					display: block;
+					opacity: 0.4;
+					transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+				}
+			}
+			.project__name {
+				position: absolute;
+				left: -15%;
+				top: 25.8%;
+				transform: translateY(-50%);
+				.name {
+					display: inline-block;
+					@include x-rem(margin, 0 0 13px 0);
+					span {
+						position: relative;
+						font-family: $PragmaticaBlack;
+						@include x-rem(font-size, 16px);
+						color: $white;
+						text-transform: uppercase;
+						@include x-rem(padding, 4px 0);
+						@include x-rem(letter-spacing, 3px);
+						position: relative;
+						display: block;
+						transition: color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+						transform: translate3d(0,0,0);
+						&::after {
+							content: '';
+							top: 100%;
+							width: 100%;
+							left: 0;
+							height: 2px;
+							background-color: $red;
+							position: absolute;
+							transition: top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+							will-change: top;
+						}
+						&:not(:last-child) {
+							@include x-rem(margin, 0 0 4px);
+						}
+					}
+				}
+				.category {
+					font-family: $PragmaticaBook;
+					@include x-rem(font-size, 14px);
+					color: $white;
+					text-transform: uppercase;
+					@include x-rem(letter-spacing, 3.35px);
+				}
+			}
+			&:hover {
+				.project__media {
+					img {
+						opacity: 1;
+					}
+				}
+				.project__name {
+					span {
+						color: $red;
+						&::after {
+							top: -5%;
+						}
+					}
+				}
+			}
+			&.pos-bottom {
+				@include x-rem(top, 115px);
+				.project__name {
+					top: 27.2%;
+					left: -14%;
+				}
+			}
+			&.pos-top {
+				@include x-rem(top, 36px);
+				.project__name {
+					top: 29.2%;
+					left: -20%;
+				}
+			}
+			&.item__big {
+				.project__media {
+					@include x-rem(height, 450px);
+				}				
+			}
+		}
+	}
+}
+.section__links {	
+	padding: 100px 0 137px;
+	.links {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		&:hover {
+			.middle {
+				.text {
+					color: $red;
+					letter-spacing: 5.6px;
+				}
+			}
+		}
+		.section_container {
+			display: inline-block;
+			margin: 0 0 0 13.5%;
+			text-align: left;
+			width: 100%;
+		}
+	}
+	.topper {
+		font-family: $PragmaticaBook;
+		font-size: 12px;
+		color: $white;
+		text-transform: uppercase;
+		transition: color 0.3s ease;
+		letter-spacing: 3.5px;
+		text-align: left;
+	}
+	.middle {
+		margin-left: -7px;
+		.text {
+			font-family: $PragmaticaBlack;
+			font-size: 72px;
+			color: $white;
+			text-transform: uppercase;
+			letter-spacing: 3.6px;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			transition: color 0.3s ease, letter-spacing 0.3s ease;
+			text-align: left;
+		}
+	}
+}
