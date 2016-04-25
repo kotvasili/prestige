@@ -1228,78 +1228,15 @@ body {
 					}
 				}
 			}
-			.product_selector {
-				width: 100%;
-				display: inline-block;
-				margin-left: 7.6%;
-				@include clearfix;
-				.product_selector-item {
-					// width: 310px;
-					@include x-rem(width, 310px);
-					float: left;
-					position: relative;
-					// padding-left: 32px;
-					@include x-rem(padding-left, 32px);
-					.product_selector-title {
-						position: absolute;
-						// left: -14px;
-						@include x-rem(left, -14px);
-						// top: 4px;
-						@include x-rem(top, 4px);
-						height: 100%;
-						// width: 32px;
-						@include x-rem(width, 32px);
-						.heading {
-							height: 22%;
-							position: relative;
-							width: 100%;
-							.heading-text {
-								// height: 32px;
-								@include x-rem(height, 32px);
-								// left: -32px;
-								@include x-rem(left, -32px);
-								// line-height: 32px;
-								@include x-rem(line-height, 32px);
-								margin: 0;
-								padding: 0;
-								position: absolute;
-								top: 0;
-								transform: rotate(270deg);
-								transform-origin: right top 0;
-								width: 100%;
-								span {
-									height: 100%;
-									position: absolute;
-									right: 0;
-									top: 0;
-									font-family: $PragmaticaBook;
-									// font-size: 12px;
-									@include x-rem(font-size, 12px);
-									text-transform: uppercase;
-									color: $white;
-									opacity: 0.5;
-									// letter-spacing: 3.8px;
-									@include x-rem(letter-spacing, 3.8px);
-									user-select: none;
-								}
-							}
-						}
-					}
-					.text {
-						p {
-							font-family: $PragmaticaBook;
-							color: #fff;
-							// font-size: 16px;
-							@include x-rem(font-size, 16px);
-							// letter-spacing: 1.6px;
-							@include x-rem(letter-spacing, 1.6px);
-							line-height: 1.9;
-						}
-					}
-					&:last-child {
-						margin-left: 2.8%;
-						margin-top: 9.8%;
-					}
+		}
+		.product_selector {
+			margin-left: 7.6%;
+			.product_selector-item {						
+				@include x-rem(width, 310px);			
+				@include x-rem(padding-left, 32px);
+				&:last-child {
+					margin-left: 2.8%;
+					margin-top: 9.8%;
 				}
 			}
 		}
@@ -1337,6 +1274,73 @@ body {
 		padding-left: 17.7%;
 		.link-dash {
 			display: inline-block;		
+		}
+	}
+}
+.product_selector {
+	width: 100%;
+	display: inline-block;
+	@include clearfix;
+	.product_selector-item {
+		// width: 310px;
+		float: left;
+		position: relative;
+		// padding-left: 32px;
+		.product_selector-title {
+			position: absolute;
+			// left: -14px;
+			@include x-rem(left, -14px);
+			// top: 4px;
+			@include x-rem(top, 4px);
+			height: 100%;
+			// width: 32px;
+			@include x-rem(width, 32px);
+			.heading {
+				height: 22%;
+				position: relative;
+				width: 100%;
+				.heading-text {
+					// height: 32px;
+					@include x-rem(height, 32px);
+					// left: -32px;
+					@include x-rem(left, -32px);
+					// line-height: 32px;
+					@include x-rem(line-height, 32px);
+					margin: 0;
+					padding: 0;
+					position: absolute;
+					top: 0;
+					transform: rotate(270deg);
+					transform-origin: right top 0;
+					width: 100%;
+					span {
+						height: 100%;
+						position: absolute;
+						right: 0;
+						top: 0;
+						font-family: $PragmaticaBook;
+						// font-size: 12px;
+						@include x-rem(font-size, 12px);
+						text-transform: uppercase;
+						color: $white;
+						opacity: 0.5;
+						// letter-spacing: 3.8px;
+						@include x-rem(letter-spacing, 3.8px);
+						user-select: none;
+					}
+				}
+			}
+		}
+		.text {
+			p {
+				font-family: $PragmaticaBook;
+				color: #fff;
+				// font-size: 16px;
+				@include x-rem(font-size, 16px);
+				// letter-spacing: 1.6px;
+				@include x-rem(letter-spacing, 1.6px);
+				line-height: 1.9;
+			}
 		}
 	}
 }
@@ -2298,4 +2302,165 @@ body {
 			}
 		}
 	}
+}
+.head__projects-inner {
+	@include x-rem(padding, 90px 90px 0);
+	position: relative;
+	.head__projects-bg {
+		width: 100%;
+		@include x-rem(height, 630px);
+		overflow: hidden;
+		img {
+			display: block;
+			width: 100%;
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+	.lead {
+		position: absolute;
+		top: 55%;
+		left: 46.9%;
+		transform: translate(-50%, -50%);
+		display: inline-block;
+		width: 100%;
+	}
+	.head__projects-name {
+		font-family: $PragmaticaBold;
+		@include x-rem(font-size, 18px);
+		@include x-rem(letter-spacing, 1px);
+		color: $white;
+		position: absolute;
+		@include x-rem(bottom, 30px);
+		@include x-rem(right, 131px);
+		span {
+			font-family: $PragmaticaBook;
+			@include x-rem(font-size, 14px);
+			@include x-rem(letter-spacing, 2.1px);
+		}
+		&::after {
+			content: '';
+			@include x-rem(width, 32px);
+			height: 1px;
+			background-color: $white;
+			position: absolute;
+			@include x-rem(top, 12px);
+			@include x-rem(left, -57px);
+		}
+	}
+}
+.breadcrumbs-container {
+	height: 100%;
+	.breadcrumbs-inner {
+		position: absolute;
+		top: 50%;
+		transform: rotate(270deg) translateX(-50%);
+		transform-origin: left top;
+		text-align: center;
+		.breadcrumbs-list {
+			@include clearfix;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			@include x-rem(height, 90px);
+			li {
+				display: inline-block;
+				position: relative;
+				@include x-rem(margin-left, 60px);
+				&::after {
+					content: '';
+					position: absolute;
+					@include x-rem(width, 32px);
+					height: 1px;
+					background-color: rgba(255,255,255,.5);
+					@include x-rem(top, 8px);
+					@include x-rem(right, -45px);
+					display: inline-block;
+				}
+				&::before {
+					content: '';
+					position: absolute;
+					@include x-rem(width, 32px);
+					height: 1px;
+					background-color: rgba(255,255,255,.5);
+					@include x-rem(top, 8px);
+					@include x-rem(left, -45px);
+					display: inline-block;
+				}
+				&:not(:first-child) {
+					&::after {
+						content: '';
+						position: absolute;
+						@include x-rem(width, 32px);
+						height: 1px;
+						background-color: rgba(255,255,255,.5);
+						@include x-rem(top, 8px);
+						@include x-rem(right, -45px);
+						display: inline-block;
+					}
+					&::before {
+						display: none;
+					}
+				}
+				a {
+					font-family: $PragmaticaBook;
+					@include x-rem(font-size, 12px);
+					text-transform: uppercase;
+					color: rgba(255,255,255,.5);
+					@include x-rem(letter-spacing, 2.9px);
+					display: block;
+					transition: color 0.3s ease;
+					&:hover {
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+}
+.task__projects {
+	@include x-rem(margin, 92px 0 45px);
+	position: relative;
+	@include x-rem(padding, 0 90px);
+	display: inline-block;
+	width: 100%;
+	.product_selector {
+		margin-left: 0;
+		max-width: 1150px;
+		@include x-rem(padding-left, 21px);
+		@include r(1280) {
+			padding-left: 0;
+		}
+		.product_selector-item {
+			width: 31.9%;
+			float: left;
+			@include x-rem(padding-left, 37px);
+			@include r(1280) {
+				&:first-child {
+					@include x-rem(padding-left, 18px);
+				}
+			}
+			&:last-child {
+				@include x-rem(margin-left, 38px);
+			}
+			.text {
+				p {
+					@include x-rem(letter-spacing, 0.8px);
+				}
+			}
+		}
+		.product__head {
+			font-family: $PragmaticaBold;
+			@include x-rem(font-size, 36px);
+			color: $white;
+		}
+	}
+}
+.project__gallery {
+	@include x-rem(margin, 45px 0 0);
+	position: relative;
+	@include x-rem(padding, 0 90px 0 150px);
+	display: inline-block;
+	width: 100%;
 }

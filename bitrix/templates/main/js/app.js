@@ -12,6 +12,23 @@ $(document).ready(function () {
 		}).append(svg);
 	}
 
+	//breadcrumbs 
+	function breadcrumbs() {
+		var vh = $(window).height(),
+			fT = $('.frame_top').height(),
+			fB = $('.frame_bottom').height(),
+			inner = $('.breadcrumbs-inner');
+
+		inner.css('width', vh - fT -fB)
+
+	};
+	breadcrumbs();
+
+	$(window).on("resize", function(){
+		breadcrumbs();
+	});
+
+
 	//images or links draggeble
 	function drag() {
 		$("img, a").on("dragstart", function(event) { event.preventDefault(); });
