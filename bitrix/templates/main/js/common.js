@@ -100,7 +100,12 @@ $(document).ready(function () {
 		$('.section__links').find('.text').css({
 			'background-image': 'none',
 			'background-color': 'transparent'
-		})
+		});
+		var svg = '<svg viewBox="0 0 41.2 19" xmlns="http://www.w3.org/2000/svg"><path class="fill" d="m0,8.9l25,0l0,2l-25,0l0,-2z" clip-rule="evenodd" fill-rule="evenodd"/><path class="stroke" d="m39.2,9.5l-13.5,7.8l0,-15.6l13.5,7.8z" stroke-miterlimit="10" stroke-width="2" fill="none"/></svg>';
+		$('.section__links').find('.icon').css({
+			'background-image': 'none',
+			'background-color': 'transparent'
+		}).append(svg);
 	}
 
 	//images or links draggeble
@@ -178,7 +183,7 @@ $(document).ready(function () {
 				direction = parseInt($prlx.data('direction'), 10) || 1;
 				wrapperOffset = $wrapper.offset().top;
 
-				wrapperMargin = ($(window).height() - topBorder.innerHeight() - bottomBorder.innerHeight() - wrapperRect.height) / 2;
+				wrapperMargin = ($(window).height() - topBorder.innerHeight() - bottomBorder.innerHeight() - wrapperRect.height + 850) / 2;
 
 				if (0 > wrapperMargin && (scrollTop + wrapperRect.top) <= topBorder.innerHeight()) {
 					wrapperMargin = 0;

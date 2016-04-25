@@ -81,6 +81,7 @@ body {
 	pointer-events: none;
 	display: block;
 	width: 100%;
+	z-index: 1;
 	.backgrounded {
 		display: block;
 		height: 100%;
@@ -897,11 +898,12 @@ body {
 .section_carousel {
 	width: 100%;
 	height: 100vh;
-	max-height: 960px;
+	max-height: 1000px;
 	min-height: 550px;
 	background-color: $darkGrey;
 	//background-image: url(../img/bg/pattern.png);
 	position: relative;
+	z-index: 2;
 	.sq-carousel {
 		width: 100%;
 		height: 100%;
@@ -1133,6 +1135,7 @@ body {
 		display: inline-block;
 		margin-left: -2.8%;
 		position: relative;
+		z-index: 1;
 		.carousel_layout {
 			// width: 955px;
 			@include x-rem(width, 955px);
@@ -1343,13 +1346,13 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
+	z-index: 0;
 	.letters_item {
 		font-family: $PragmaticaCondensedBlack;
 		// font-size: 200px;
 		@include x-rem(font-size, 200px);
-		color: $white;
-		opacity: 0.05;
+		color: $letters;
+		//opacity: 0.05;
 		position: absolute;
 		&.letters-p {
 			top: 3%;
@@ -1944,6 +1947,8 @@ body {
 		text-align: center;
 		display: inline-block;
 		width: 100%;
+		position: relative;
+		z-index: 2;
 		@include clearfix;
 		.filter__container {
 			.filter__item {
@@ -1986,7 +1991,8 @@ body {
 	.projects__container {
 		@include clearfix;
 		position: relative;
-		// left: 2.2%;
+		// left: 2.2%;position: relative;
+		z-index: 2;
 		@include x-rem(padding-top, 72px);
 		.project__grid {
 			@include x-rem(min-height, 505px);
@@ -1999,6 +2005,9 @@ body {
 			@include x-rem(height, 450px);
 			@include r(1150) {
 				width: 50%;
+				&:not(:nth-child(-n+2)) {
+					@include x-rem(margin, 88px 0 0);
+				}
 			}
 			// &:nth-child(n+2) {
 			// 	text-align: center;
@@ -2006,8 +2015,8 @@ body {
 			// &:nth-child(3) {
 			// 	text-align: right;
 			// }			
-			&:not(:nth-child(n+3)) {
-				@include x-rem(margin, 0 0 88px);
+			&:not(:nth-child(-n+3)) {
+				@include x-rem(margin, 88px 0 0);
 			}
 		}
 		.project__item {
@@ -2092,6 +2101,12 @@ body {
 					top: 27.2%;
 					left: -14%;
 				}
+				.project__media {
+					img {
+						position: relative;
+						top: -80%;
+					}
+				}
 			}
 			&.pos-top {
 				@include x-rem(top, 36px);
@@ -2099,17 +2114,94 @@ body {
 					top: 29.2%;
 					left: -20%;
 				}
+				.project__media {
+					img {
+						position: relative;
+						top: -80%;
+					}
+				}
 			}
 			&.item__big {
 				.project__media {
 					@include x-rem(height, 450px);
-				}				
+					img {
+						position: relative;
+						top: -35%;
+					}
+				}
 			}
 		}
 	}
+	.letters {
+		.letters_item {
+			&.letters-p {
+				left: 15.2%;
+				top: 32%;
+				@include r(1280) {
+					left: 5%;
+				}
+			}
+			&.letters-r {
+				bottom: auto;
+				left: 23.2%;
+				right: auto;
+				top: 83.5%;
+				@include r(1280) {
+					left: 12.2%;
+				}
+			}
+			&.letters-o {
+				left: 32%;
+				top: 32%;
+				@include r(1280) {
+					left: 25%;
+				}
+			}
+			&.letters-j {
+				bottom: auto;
+				left: 39.5%;
+				right: auto;
+				top: 83.5%;
+			}
+			&.letters-e {
+				left: 47%;
+				top: 32%;
+				@include r(1280) {
+					left: 48%;
+				}
+			}
+			&.letters-c {
+				bottom: auto;
+				left: 51.5%;
+				right: auto;
+				top: 83.5%;
+				@include r(1280) {
+					left: 57.5%;
+				}
+			}
+			&.letters-t {
+				right: 27%;
+				top: 32%;
+				@include r(1280) {
+					right: 21%;
+				}
+			}
+			&.letters-s {
+				left: auto;
+				top: 83.5%;
+				bottom: auto;
+				right: 23.3%;
+				@include r(1280) {
+					right: 10.3%;
+				}
+			}
+		}
+	}
+				
 }
 .section__links {	
-	padding: 100px 0 137px;
+	// padding: 100px 0 137px;
+	@include x-rem(padding, 100px 0 137px);
 	.links {
 		display: inline-block;
 		width: 100%;
@@ -2118,7 +2210,18 @@ body {
 			.middle {
 				.text {
 					color: $red;
-					letter-spacing: 5.6px;
+					// letter-spacing: 5.6px;
+					@include x-rem(letter-spacing, 5.6px);
+				}
+			}
+			.arrow {
+				.icon {
+					.fill {
+						fill: $red;
+					}
+					.stroke {
+						stroke: $red;
+					}
 				}
 			}
 		}
@@ -2131,25 +2234,68 @@ body {
 	}
 	.topper {
 		font-family: $PragmaticaBook;
-		font-size: 12px;
+		// font-size: 12px;
+		@include x-rem(font-size, 12px);
 		color: $white;
 		text-transform: uppercase;
 		transition: color 0.3s ease;
-		letter-spacing: 3.5px;
+		// letter-spacing: 3.5px;
+		@include x-rem(letter-spacing, 3.5px);
 		text-align: left;
 	}
 	.middle {
-		margin-left: -7px;
+		// margin-left: -7px;
+		@include x-rem(margin-left, -7px);
 		.text {
 			font-family: $PragmaticaBlack;
-			font-size: 72px;
+			// font-size: 72px;
+			@include x-rem(font-size, 72px);
 			color: $white;
 			text-transform: uppercase;
-			letter-spacing: 3.6px;
+			// letter-spacing: 3.6px;
+			@include x-rem(letter-spacing, 3.6px);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 			transition: color 0.3s ease, letter-spacing 0.3s ease;
 			text-align: left;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	.arrow {
+		// width: 40px;
+		// height: 22px;
+		@include x-rem(width, 40px);
+		@include x-rem(height, 22px);
+		display: inline-block;
+		vertical-align: middle;
+		// margin-left: 30px;
+		@include x-rem(margin-left, 30px);
+		.icon {
+			@include x-rem(width, 40px);
+			display: block;
+			// height: 22px;
+			@include x-rem(height, 22px);
+			background-repeat: no-repeat;
+			background-size: cover;
+			.fill {
+				fill: $white;
+				transition: fill 0.3s ease;
+			}
+			.stroke {
+				stroke: $white;
+				transition: stroke 0.3s ease;
+			}
+		}
+	}
+}
+.chrome {
+	.section__links {
+		.arrow {
+			@include x-rem(width, 51px);
+			.icon {
+				@include x-rem(width, 51px);
+			}
 		}
 	}
 }
