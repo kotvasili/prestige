@@ -12,11 +12,15 @@
     "gulp-minify-css": "*",
     "gulp-rigger": "*",
     "gulp-sass": "*",
+    "gulp-jade": "*",
     "gulp.spritesmith": "*",
     "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
     "gulp-watch": "*",
     "imagemin-pngquant": "*",
     "rimraf": "*"
+  },
+  "devDependencies": {
+    "gulp-jade": "^1.1.0"
   }
 }

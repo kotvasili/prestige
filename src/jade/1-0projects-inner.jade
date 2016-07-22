@@ -1,0 +1,59 @@
+doctype html
+head
+  title 1-0projects-inner
+  include ./_head.jade
+.out
+  include ./_frame.jade
+  .frame.frame_left
+    .breadcrumbs-container
+      .breadcrumbs-inner
+        ul.breadcrumbs-list
+          li
+            a(href='#') Home
+          li
+            a(href='#') Projects
+  include ./_grid.jade
+  .wrapper
+    section.section
+      .section__head.head__projects-inner
+        .head__projects-bg
+          img(src='img/projects/projects.jpg', alt='')
+        .lead.parallax(data-speed='5')
+          .title # woodtable
+        .head__projects-name
+          | Alfabank Minsk 
+          span 2015
+      .container
+        .task__projects
+          .product_selector
+            .product_selector-item
+              .product__head Interior design
+            .product_selector-item
+              .product_selector-title
+                .heading
+                  .heading-text
+                    span Client
+              .text
+                p
+                  | Big Ivanov`s family with 4 childrens 
+                  br
+                  | and dog Masha
+            .product_selector-item
+              .product_selector-title
+                .heading
+                  .heading-text
+                    span Task
+              .text
+                p
+                  | Wooden table with a triangular- shaped hole in the middle.  Ideal for business meetings. Each place has a personal outlet for laptop
+        .project__gallery
+    section.section.section__links
+      a.links.parallax(href='#', data-speed='15')
+        .section_container
+          .topper you can see
+          .middle
+            .text(style="background-image: url('../img/mask.jpg')") next project
+            .arrow
+              .icon(style="background-image: url('../img/icons/arrow.png')")
+  include ./_footer-inner.jade
+include ./_menu.jade

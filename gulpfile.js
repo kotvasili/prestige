@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
+    jade = require('gulp-jade'),
     reload = browserSync.reload;
 
 var path = {
@@ -30,6 +31,7 @@ var path = {
         html: 'src/*.html',
         js: 'src/js/**/*.js',
         css: 'src/css/*.*',
+        jade: 'src/jade/*.jade',
         sass: 'src/sass/screen.scss',
         img: 'src/img/**/*.*',
         svg: 'src/svg/*.svg',
@@ -40,6 +42,7 @@ var path = {
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
         css: 'src/css/*.*',
+        jade: 'src/jade/*.jade',
         sass: 'src/sass/**/*.*',
         img: 'src/img/**/*.*',
         svg: 'src/svg/*.svg',
@@ -71,13 +74,18 @@ gulp.task('webserver', function () {
 gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
+gulp.task('jade:build', function () {
+    gulp.src(path.src.jade,['!src/jade/_*.jade'])
+    .pipe(jade({
 
-gulp.task('html:build', function () {
-    gulp.src(path.src.html) 
-        .pipe(rigger())
-        .pipe(gulp.dest(path.build.html))
-        .pipe(reload({stream: true}));
+      pretty: '\t'
+    }))
+    .on('error', console.log)
+    .pipe(gulp.dest(path.build.html))
 });
+
+gulp.task('jade-watch', ['jade:build'], reload);
+
 
 gulp.task('js:build', function () {
     gulp.src(path.src.js) 
@@ -141,7 +149,7 @@ gulp.task('fonts:build', function() {
 });
 
 gulp.task('build', [
-    'html:build',
+    'jade:build',
     'js:build',
     'sass:build',
     'sprite:build',
@@ -152,9 +160,7 @@ gulp.task('build', [
 
 
 gulp.task('watch', function(){
-    watch([path.watch.html], function(event, cb) {
-       gulp.start('html:build');
-    });
+    gulp.watch([path.watch.jade], ['jade-watch']);
     watch([path.watch.sass], function(event, cb) {
         gulp.start('sass:build');
     });
